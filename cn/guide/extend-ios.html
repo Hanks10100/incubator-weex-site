@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>iOS 扩展 | Weex</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="注意#Weex 所有暴露给  JS 的内置 module 或 component API 都是安全和可控的， 它们不会去访问系统的私有 API ，也不会去做任何 runtime 上的 hack 更不会去改变应用原有的功能定位。 如果需要扩展自定义的 module 或者 component ，一定注意不要将 OC 的 runtime 暴露给 JS ， 不要将一些诸如 dlopen()， dlsym(">
+<meta property="og:type" content="website">
+<meta property="og:title" content="iOS 扩展">
+<meta property="og:url" content="https://weex.apache.org/cn/guide/extend-ios.html">
+<meta property="og:site_name" content="Weex">
+<meta property="og:description" content="注意#Weex 所有暴露给  JS 的内置 module 或 component API 都是安全和可控的， 它们不会去访问系统的私有 API ，也不会去做任何 runtime 上的 hack 更不会去改变应用原有的功能定位。 如果需要扩展自定义的 module 或者 component ，一定注意不要将 OC 的 runtime 暴露给 JS ， 不要将一些诸如 dlopen()， dlsym(">
+<meta property="og:locale" content="cn">
+<meta property="og:updated_time" content="2017-10-11T12:47:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS 扩展">
+<meta name="twitter:description" content="注意#Weex 所有暴露给  JS 的内置 module 或 component API 都是安全和可控的， 它们不会去访问系统的私有 API ，也不会去做任何 runtime 上的 hack 更不会去改变应用原有的功能定位。 如果需要扩展自定义的 module 或者 component ，一定注意不要将 OC 的 runtime 暴露给 JS ， 不要将一些诸如 dlopen()， dlsym(">
+  
+    <link rel="alternate" href="/atom.xml" title="Weex" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//gw.alicdn.com/tps/TB1XNqxPXXXXXcSXVXXXXXXXXXX-64-63.png">
+  
+  
+    <link rel="stylesheet" href="/css/docsearch.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/swiper.min.css">
+</head>
+<body id="guide" class="lang-cn">
+  
+  <script>
+    window.PAGE_TYPE = "guide";
+    window.ROOT = "/"
+  </script>
+  <header id="header">
+  <div class="navbar">
+    <a id="logo" href="/cn/">
+      <img src="//img.alicdn.com/tps/TB1zBLaPXXXXXXeXXXXXXXXXXXX-121-59.svg" />
+    </a>
+    <div class="main-nav">
+      <ul class="links">
+        <li class="current">
+          <a href="/cn/guide">教程</a>
+        </li>
+        <li class="">
+          <a href="/cn/references">手册</a>
+        </li>
+        <li class="">
+          <a href="/cn/wiki">WiKi</a>
+        </li>
+        <li class="">
+            <a  href="/cn/tools">工具</a>
+        </li>
+        <li class="dropdown ">
+          <a href="javascript:;">社区</a>
+          <ul class="dropdown-menu subnav">
+            <li>
+              <a href="/cn/resources.html">资源</a>
+            </li>
+            <li>
+              <a href="/cn/contributing.html">如何参与贡献</a>
+            </li>
+            <li>
+              <a href="/cn/development-process.html">开发流程</a>
+            </li>
+            <li>
+              <a href="/cn/who-is-using-weex.html">谁在使用 Weex</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="tools">
+        <li>
+          <div class="search">
+  <form id="search-form" class="search-form"> <!-- 搜索框相关 -->
+    <input type="text" id="search-input-header" name="q" results="0" class="form-control search-input" autocomplete="off" autocorrect="off"/>
+    <span class="iconfont icon-search"></span>
+  </form>
+  <div class="results-panel">
+  </div>
+</div>
+        </li>
+        <li>
+          <div class="dropdown select-lang">
+            <a href="javascript:;" class="dropdown-toggle">
+              Language
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu pick-lang">
+              <li>
+                <a href="/guide/extend-ios.html" data-lang="en">English</a>
+              </li>
+              <li>
+                <a href="/cn/guide/extend-ios.html" data-lang="zh-cn">中文</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <!--<li></li>-->
+      </ul>
+      <ul>
+        <li><a href="https://github.com/apache/incubator-weex/" target="_blank"><span class="btn-github iconfont icon-github"></span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="mobile-nav">
+    <a id="logo" href="/cn/">
+      <img src="//img.alicdn.com/tps/TB1zBLaPXXXXXXeXXXXXXXXXXXX-121-59.svg" />
+    </a>
+    <a class="btn-menu"><span class="iconfont icon-nav"></span></a>
+  </div>
+</header>
+
+  <div id="sidebar" class="">
+  <div class="sidebar-menu">
+    
+      <div class="search">
+  <form id="search-form" class="search-form"> <!-- 搜索框相关 -->
+    <input type="text" id="search-input-sidebar" name="q" results="0" class="form-control search-input" autocomplete="off" autocorrect="off"/>
+    <span class="iconfont icon-search"></span>
+  </form>
+  <div class="results-panel">
+  </div>
+</div>
+      
+
+
+<div class="summary">
+  <ul class="doc-summary">
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Overview</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/cn/guide/index.html" class="sidebar-link  ">快速上手</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/integrate-to-your-app.html" class="sidebar-link  ">集成 Weex 到已有应用</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/front-end-frameworks.html" class="sidebar-link  ">支持的前端框架</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">开发</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/cn/guide/set-up-env.html" class="sidebar-link  ">搭建开发环境</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/using-vue.html" class="sidebar-link  ">使用 Vue.js</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/using-rax.html" class="sidebar-link  ">使用 Rax</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/integrate-devtool-to-android.html" class="sidebar-link  ">集成 Devtools 到 Android</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/integrate-devtool-to-ios.html" class="sidebar-link  ">集成 Devtools 到 iOS</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">扩展</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/cn/guide/extend-web-render.html" class="sidebar-link  ">HTML5 扩展</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/extend-android.html" class="sidebar-link  ">Android 扩展</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/extend-ios.html" class="sidebar-link current ">iOS 扩展</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/extend-js-framework.html" class="sidebar-link  ">拓展 JS framework</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">高阶特性</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/cn/guide/advanced/path.html" class="sidebar-link  ">资源路径</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/advanced/downgrade.html" class="sidebar-link  ">降级方案</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/advanced/use-vuex-and-vue-router.html" class="sidebar-link  ">使用 Vuex 和 vue-router</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/advanced/app-architecture.html" class="sidebar-link  ">构建完整移动应用</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/advanced/page-architecture.html" class="sidebar-link  ">Weex 页面结构</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+</div>
+
+    
+    <a class="btn-close-sidebar iconfont  icon-close"></a>
+  </div>
+</div>
+
+  
+
+<div class="main-content">
+  <div class="article-wrapper page-layout with-chapter">
+    
+      <div class="doc-nav">
+        
+
+
+<div class="summary">
+  <ul class="doc-summary">
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Overview</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/cn/guide/index.html" class="sidebar-link  ">快速上手</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/integrate-to-your-app.html" class="sidebar-link  ">集成 Weex 到已有应用</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/front-end-frameworks.html" class="sidebar-link  ">支持的前端框架</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">开发</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/cn/guide/set-up-env.html" class="sidebar-link  ">搭建开发环境</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/using-vue.html" class="sidebar-link  ">使用 Vue.js</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/using-rax.html" class="sidebar-link  ">使用 Rax</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/integrate-devtool-to-android.html" class="sidebar-link  ">集成 Devtools 到 Android</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/integrate-devtool-to-ios.html" class="sidebar-link  ">集成 Devtools 到 iOS</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">扩展</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/cn/guide/extend-web-render.html" class="sidebar-link  ">HTML5 扩展</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/extend-android.html" class="sidebar-link  ">Android 扩展</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/extend-ios.html" class="sidebar-link current ">iOS 扩展</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/extend-js-framework.html" class="sidebar-link  ">拓展 JS framework</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">高阶特性</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/cn/guide/advanced/path.html" class="sidebar-link  ">资源路径</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/advanced/downgrade.html" class="sidebar-link  ">降级方案</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/advanced/use-vuex-and-vue-router.html" class="sidebar-link  ">使用 Vuex 和 vue-router</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/advanced/app-architecture.html" class="sidebar-link  ">构建完整移动应用</a>
+              </li>
+            
+              <li>
+                <a href="/cn/guide/advanced/page-architecture.html" class="sidebar-link  ">Weex 页面结构</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+</div>
+
+        <div class="sponsor">
+            <a class="sponsor-poster" target="_blank" href="https://render.alipay.com/p/s/taobaonpm_click/weex_banner_click">
+              <img src="https://render.alipay.com/p/s/taobaonpm_click/weex_banner" alt="" width="180px">
+            </a>
+            <div class="sponsor-title">本站点由阿里云赞助支持</div>
+          </div>
+      </div>
+    
+    
+
+<article class="article article-type-guide">
+  <div class="article-entry" itemprop="articleBody">
+    <header class="article-header">
+  
+    
+      <h1 class="article-title" itemprop="name">
+        iOS 扩展
+      </h1>
+    
+  
+  <!-- <time class="article-date" datetime="2017-10-11T12:47:59.000Z">Updated time: 11/10/2017</time> -->
+</header>
+
+    <html><head></head><body><h2 class="article-heading"><span id="zhu-yi">&#x6CE8;&#x610F;</span><a href="#zhu-yi" class="header-anchor">#</a></h2><p><strong>Weex &#x6240;&#x6709;&#x66B4;&#x9732;&#x7ED9;  JS &#x7684;&#x5185;&#x7F6E; module &#x6216; component API &#x90FD;&#x662F;&#x5B89;&#x5168;&#x548C;&#x53EF;&#x63A7;&#x7684;&#xFF0C; &#x5B83;&#x4EEC;&#x4E0D;&#x4F1A;&#x53BB;&#x8BBF;&#x95EE;&#x7CFB;&#x7EDF;&#x7684;&#x79C1;&#x6709; API &#xFF0C;&#x4E5F;&#x4E0D;&#x4F1A;&#x53BB;&#x505A;&#x4EFB;&#x4F55; runtime &#x4E0A;&#x7684; hack &#x66F4;&#x4E0D;&#x4F1A;&#x53BB;&#x6539;&#x53D8;&#x5E94;&#x7528;&#x539F;&#x6709;&#x7684;&#x529F;&#x80FD;&#x5B9A;&#x4F4D;&#x3002;</strong></p>
+<p><strong>&#x5982;&#x679C;&#x9700;&#x8981;&#x6269;&#x5C55;&#x81EA;&#x5B9A;&#x4E49;&#x7684; module &#x6216;&#x8005; component &#xFF0C;&#x4E00;&#x5B9A;&#x6CE8;&#x610F;&#x4E0D;&#x8981;&#x5C06; OC &#x7684; runtime &#x66B4;&#x9732;&#x7ED9; JS &#xFF0C; &#x4E0D;&#x8981;&#x5C06;&#x4E00;&#x4E9B;&#x8BF8;&#x5982; <code>dlopen()</code>&#xFF0C; <code>dlsym()</code>&#xFF0C; <code>respondsToSelector:</code>&#xFF0C;<code>performSelector:</code>&#xFF0C;<code>method_exchangeImplementations()</code> &#x7684;&#x52A8;&#x6001;&#x548C;&#x4E0D;&#x53EF;&#x63A7;&#x7684;&#x65B9;&#x6CD5;&#x66B4;&#x9732;&#x7ED9;JS&#xFF0C; &#x4E5F;&#x4E0D;&#x8981;&#x5C06;&#x7CFB;&#x7EDF;&#x7684;&#x79C1;&#x6709;API&#x66B4;&#x9732;&#x7ED9;JS</strong></p>
+<h2 class="article-heading"><span id="module-kuo-zhan">Module &#x6269;&#x5C55;</span><a href="#module-kuo-zhan" class="header-anchor">#</a></h2><p><a href="https://github.com/weexteam/article/issues/55" target="_blank" rel="external">swift</a> &#x6269;&#x5C55; module</p>
+<p>Weex SDK &#x53EA;&#x63D0;&#x4F9B;&#x6E32;&#x67D3;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5176;&#x4ED6;&#x7684;&#x80FD;&#x529B;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x9700;&#x8981; &#x50CF;&#x7F51;&#x7EDC;&#xFF0C;&#x56FE;&#x7247;&#xFF0C;URL&#x8DF3;&#x8F6C;&#x8FD9;&#x4E9B;&#x7279;&#x6027;&#xFF0C;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x52A8;&#x624B;&#x5B9E;&#x73B0;&#x4ED6;&#x4EEC;<br>&#x4F8B;&#x5982;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;url&#x5730;&#x5740;&#x8DF3;&#x8F6C;&#x51FD;&#x6570;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x6309;&#x7167;&#x5982;&#x4E0B;&#x6B65;&#x9AA4;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A; Module</p>
+<h3 class="article-heading"><span id="zi-ding-yi-module-de-bu-zou"><strong>&#x81EA;&#x5B9A;&#x4E49;module&#x7684;&#x6B65;&#x9AA4;</strong></span><a href="#zi-ding-yi-module-de-bu-zou" class="header-anchor">#</a></h3><ol>
+<li>&#x81EA;&#x5B9A;&#x4E49;&#x7684;module&#x7C7B; &#x5FC5;&#x987B;&#x5B9E;&#x73B0; <code>WXModuleProtocol</code></li>
+<li>&#x5FC5;&#x987B;&#x6DFB;&#x52A0;&#x5B8F;<code>WX_EXPORT_METHOD</code>, &#x5B83;&#x53EF;&#x4EE5;&#x88AB;weex&#x8BC6;&#x522B;&#xFF0C;&#x5B83;&#x7684;&#x53C2;&#x6570;&#x662F; JavaScript&#x8C03;&#x7528; module&#x6307;&#x5B9A;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;</li>
+<li>&#x6DFB;&#x52A0;<code>@synthesized weexInstance</code>&#xFF0C;&#x6BCF;&#x4E2A;moudle&#x5BF9;&#x8C61;&#x88AB;&#x7ED1;&#x5B9A;&#x5230;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x7684;&#x5B9E;&#x4F8B;&#x4E0A;</li>
+<li>Module &#x65B9;&#x6CD5;&#x4F1A;&#x5728;UI&#x7EBF;&#x7A0B;&#x4E2D;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x8981;&#x505A;&#x592A;&#x591A;&#x8017;&#x65F6;&#x7684;&#x4EFB;&#x52A1;&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x5728;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x6574;&#x4E2A;module &#x65B9;&#x6CD5;&#xFF0C;&#x9700;&#x8981;&#x5B9E;&#x73B0;<code>WXModuleProtocol</code>&#x4E2D;<code>- (NSThread *)targetExecuteThread</code>&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x6837;&#xFF0C;&#x5206;&#x53D1;&#x5230;&#x8FD9;&#x4E2A;module&#x7684;&#x4EFB;&#x52A1;&#x4F1A;&#x5728;&#x6307;&#x5B9A;&#x7684;&#x7EBF;&#x7A0B;&#x4E2D;&#x8FD0;&#x884C;</li>
+<li>Weex &#x7684;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x662F; String &#x6216;&#x8005;Map</li>
+<li><p>Module &#x652F;&#x6301;&#x8FD4;&#x56DE;&#x503C;&#x7ED9; JavaScript&#x4E2D;&#x7684;&#x56DE;&#x8C03;&#xFF0C;&#x56DE;&#x8C03;&#x7684;&#x7C7B;&#x578B;&#x662F;<code>WXModuleCallback</code>,&#x56DE;&#x8C03;&#x7684;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x662F;String&#x6216;&#x8005;Map</p>
+ <figure class="highlight plain"><table><tbody><tr><td class="code"><pre><div class="line">@implementation WXEventModule</div><div class="line"></div><div class="line">@synthesize weexInstance;</div><div class="line">WX_EXPORT_METHOD(@selector(openURL:callback:))</div><div class="line"></div><div class="line">- (void)openURL:(NSString *)url callback:(WXModuleCallback)callback</div><div class="line">{</div><div class="line">    NSString *newURL = url;</div><div class="line">    if ([url hasPrefix:@&quot;//&quot;]) {</div><div class="line">        newURL = [NSString stringWithFormat:@&quot;http:%@&quot;, url];</div><div class="line">    } else if (![url hasPrefix:@&quot;http&quot;]) {</div><div class="line">        newURL = [NSURL URLWithString:url relativeToURL:weexInstance.scriptURL].absoluteString;</div><div class="line">    }</div><div class="line"></div><div class="line">    UIViewController *controller = [[WXDemoViewController alloc] init];</div><div class="line">    ((WXDemoViewController *)controller).url = [NSURL URLWithString:newURL];</div><div class="line"></div><div class="line">    [[weexInstance.viewController navigationController] pushViewController:controller animated:YES];</div><div class="line">    callback(@{@&quot;result&quot;:@&quot;success&quot;});</div><div class="line">}</div><div class="line"></div><div class="line">@end</div></pre></td></tr></tbody></table></figure>
+</li>
+</ol>
+<h4 class="article-heading"><span id="bao-lu-tong-bu-fang-fa-v0-10">&#x66B4;&#x9732;&#x540C;&#x6B65;&#x65B9;&#x6CD5;<span class="api-version">v0.10+</span></span><a href="#bao-lu-tong-bu-fang-fa-v0-10" class="header-anchor">#</a></h4><p>&#x5982;&#x679C;&#x4F60;&#x60F3;&#x8981;&#x66B4;&#x9732;&#x540C;&#x6B65;&#x7684;native&#x65B9;&#x6CD5;&#x7ED9;JS&#xFF0C; &#x5373;JS&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x62FF;&#x5230;Native&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x3002; &#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>WX_EXPORT_METHOD_SYNC</code> &#x5B8F;&#x3002;</p>
+<p>native &#x4EE3;&#x7801;:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><div class="line">@implementation WXEventModule</div><div class="line"></div><div class="line">WX_EXPORT_METHOD_SYNC(@selector(getString))</div><div class="line"></div><div class="line">- (NSString *)getString</div><div class="line">{</div><div class="line">    return @&quot;testString&quot;;</div><div class="line">}</div><div class="line"></div><div class="line">@end</div></pre></td></tr></tbody></table></figure>
+<p>js &#x4EE3;&#x7801;:</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> eventModule = weex.requireModule(<span class="string">&apos;event&apos;</span>)</div><div class="line"><span class="keyword">const</span> returnString = syncTest.getString()  <span class="comment">// return &quot;testString&quot;</span></div></pre></td></tr></tbody></table></figure>
+<p>&#x9664;&#x4E86;string, &#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE; <code>number/array/dictionary</code> &#x7C7B;&#x578B;.</p>
+<p><code>&#x6CE8;&#x610F;:</code>  &#x66B4;&#x9732;&#x7684;&#x540C;&#x6B65;&#x65B9;&#x6CD5;&#x53EA;&#x80FD;&#x5728; JS &#x7EBF;&#x7A0B;&#x6267;&#x884C;&#xFF0C;&#x8BF7;&#x4E0D;&#x8981;&#x505A;&#x592A;&#x591A;&#x540C;&#x6B65;&#x7684;&#x5DE5;&#x4F5C;&#x5BFC;&#x81F4;JS&#x6267;&#x884C;&#x963B;&#x585E;&#x3002;</p>
+<p><code>&#x6CE8;&#x610F;:</code>  Vue 2.0 &#x8FD8;&#x672A;&#x652F;&#x6301;&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#xFF0C;&#x6700;&#x65E9;&#x4F1A;&#x5728; 0.12 &#x7248;&#x672C;&#x652F;&#x6301;</p>
+<h3 class="article-heading"><span id="zhu-ce-module">&#x6CE8;&#x518C; module</span><a href="#zhu-ce-module" class="header-anchor">#</a></h3><p>&#x901A;&#x8FC7;&#x8C03;&#x7528; WXSDKEngine &#x4E2D;&#x7684; <code>registerModule:withClass</code>&#x65B9;&#x6CD5;&#x6765;&#x6CE8;&#x518C;&#x81EA;&#x5DF1;&#x7684;module</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><div class="line">WXSDKEngine.h</div><div class="line">/**</div><div class="line">*  @abstract Registers a module for a given name</div><div class="line">*  @param name The module name to register</div><div class="line">*  @param clazz  The module class to register</div><div class="line">**/</div><div class="line">+ (void)registerModule:(NSString *)name withClass:(Class)clazz;</div><div class="line">[WXSDKEngine registerModule:@&quot;event&quot; withClass:[WXEventModule class]];</div></pre></td></tr></tbody></table></figure>
+<h3 class="article-heading"><span id="shi-yong-zi-ji-de-module">&#x4F7F;&#x7528;&#x81EA;&#x5DF1;&#x7684; module</span><a href="#shi-yong-zi-ji-de-module" class="header-anchor">#</a></h3><p>&#x8FD9;&#x91CC;&#x7684; require &#x91CC;&#x9762;&#x7684; event &#x5C31;&#x662F;&#x5728; &#x4E0A;&#x4E00;&#x6B65;&#x8C03;&#x7528; <code>registerModule:</code> &#x6CE8;&#x518C; module &#x65F6;&#x5019;&#x7684; name</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> eventModule = weex.requireModule(<span class="string">&apos;event&apos;</span>);</div><div class="line">eventModule.openURL(<span class="string">&apos;url&apos;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">ret</span>) </span>{</div><div class="line">    nativeLog(ret);</div><div class="line">});</div></pre></td></tr></tbody></table></figure>
+<p>Weex SDK &#x6CA1;&#x6709; &#x56FE;&#x7247;&#x4E0B;&#x8F7D;&#xFF0C;navigation &#x64CD;&#x4F5C;&#x7684;&#x80FD;&#x529B;&#xFF0C;&#x8BF7;&#x5927;&#x5BB6;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x8FD9;&#x4E9B; protocol</p>
+<h2 class="article-heading"><span id="wximgloaderprotocol">WXImgLoaderProtocol</span><a href="#wximgloaderprotocol" class="header-anchor">#</a></h2><p>weexSDK &#x6CA1;&#x6709;&#x56FE;&#x7247;&#x4E0B;&#x8F7D;&#x7684;&#x80FD;&#x529B;&#xFF0C;&#x9700;&#x8981;&#x5B9E;&#x73B0; WXImgLoaderProtocol, &#x53C2;&#x8003;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><div class="line">WXImageLoaderProtocol.h</div><div class="line">@protocol WXImgLoaderProtocol &lt;WXModuleProtocol&gt;</div><div class="line">/**</div><div class="line">* @abstract Creates a image download handler with a given URL</div><div class="line">* @param imageUrl The URL of the image to download</div><div class="line">* @param imageFrame  The frame of the image you want to set</div><div class="line">* @param options : The options to be used for this download</div><div class="line">* @param completedBlock : A block called once the download is completed.</div><div class="line">    image : the image which has been download to local.</div><div class="line">    error : the error which has happened in download.</div><div class="line">    finished : a Boolean value indicating whether download action has finished.</div><div class="line">*/</div><div class="line">-(id&lt;WXImageOperationProtocol&gt;)downloadImageWithURL:(NSString *)url imageFrame:(CGRect)imageFrame userInfo:(NSDictionary *)options completed:(void(^)(UIImage *image,  NSError *error, BOOL finished))completedBlock;</div><div class="line">@end</div></pre></td></tr></tbody></table></figure>
+<p>&#x5B9E;&#x73B0;&#x4E0A;&#x8FF0;&#x534F;&#x8BAE;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><div class="line">@implementation WXImgLoaderDefaultImpl</div><div class="line">#pragma mark -</div><div class="line">#pragma mark WXImgLoaderProtocol</div><div class="line"></div><div class="line">- (id&lt;WXImageOperationProtocol&gt;)downloadImageWithURL:(NSString *)url imageFrame:(CGRect)imageFrame userInfo:(NSDictionary *)userInfo completed:(void(^)(UIImage *image,  NSError *error, BOOL finished))completedBlock</div><div class="line">{</div><div class="line">    if ([url hasPrefix:@&quot;//&quot;]) {</div><div class="line">        url = [@&quot;http:&quot; stringByAppendingString:url];</div><div class="line">    }</div><div class="line">    return (id&lt;WXImageOperationProtocol&gt;)[[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:url] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {</div><div class="line">    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {</div><div class="line">    if (completedBlock) {</div><div class="line">        completedBlock(image, error, finished);</div><div class="line">    }</div><div class="line">    }];</div><div class="line">}</div><div class="line">@end</div></pre></td></tr></tbody></table></figure>
+<h3 class="article-heading"><span id="handler-zhu-ce">handler&#x6CE8;&#x518C;</span><a href="#handler-zhu-ce" class="header-anchor">#</a></h3><p>&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;WXSDKEngine &#x4E2D;&#x7684; <code>registerHandler:withProtocol</code>&#x6CE8;&#x518C;handler</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><div class="line">WXSDKEngine.h</div><div class="line">/**</div><div class="line">* @abstract Registers a handler for a given handler instance and specific protocol</div><div class="line">* @param handler The handler instance to register</div><div class="line">* @param protocol The protocol to confirm</div><div class="line">*/</div><div class="line">+ (void)registerHandler:(id)handler withProtocol:(Protocol *)protocol;</div><div class="line"></div><div class="line">[WXSDKEngine registerHandler:[WXImgLoaderDefaultImpl new] withProtocol:@protocol(WXImgLoaderProtocol)]</div></pre></td></tr></tbody></table></figure>
+<h2 class="article-heading"><span id="components-kuo-zhan">Components &#x6269;&#x5C55;</span><a href="#components-kuo-zhan" class="header-anchor">#</a></h2><p>&#x867D;&#x7136; WeexSDK &#x4E2D;&#x6709;&#x5F88;&#x591A;&#x7684; native &#x7684; Component&#xFF0C;&#x4F46;&#x8FD9;&#x6709;&#x53EF;&#x80FD;&#x5E76;&#x4E0D;&#x80FD;&#x6EE1;&#x8DB3;&#x4F60;&#x7684;&#x9700;&#x6C42;&#x3002;&#x5728;&#x4E4B;&#x524D;&#x4F60;&#x53EF;&#x80FD;&#x5DF2;&#x7ECF;&#x5199;&#x4E86;&#x4E00;&#x4E9B;&#x5F88;&#x9177;&#x70AB; native &#x7684;&#x7EC4;&#x4EF6;&#xFF0C;&#x60F3;&#x5305;&#x88C5;&#x4E00;&#x4E0B;&#xFF0C;&#x5BFC;&#x5165;&#x5230; Weex &#x4E2D;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x4E86;&#x8BA9;&#x5F00;&#x53D1;&#x8005;&#x5B9E;&#x73B0;&#x81EA;&#x5DF1;&#x7684; native Component&#x3002;&#x4E0B;&#x9762;&#x5C06;&#x4EE5; WeexSDK &#x4E2D;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684; Component&#xFF1A;<code>image</code> &#x4E3A;&#x4F8B;&#x5B50;&#xFF0C;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#x5982;&#x4F55;&#x6784;&#x5EFA;&#x4E00;&#x4E2A; native Component&#x3002;&#x5047;&#x8BBE;&#x4F60;&#x5DF2;&#x7ECF;&#x4E86;&#x89E3; iOS &#x5F00;&#x53D1;</p>
+<h3 class="article-heading"><span id="zhu-ce-component">&#x6CE8;&#x518C; Component</span><a href="#zhu-ce-component" class="header-anchor">#</a></h3><p>&#x6CE8;&#x518C;&#x4E00;&#x4E2A; component &#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x8C03;&#x7528; <code>WXSDKEngine</code> &#x4E2D;&#x7684; <code>registerComponent:withClass:</code> &#x65B9;&#x6CD5;&#xFF0C;&#x4F20;&#x5165;&#x7EC4;&#x4EF6;&#x7684;&#x6807;&#x7B7E;&#x540D;&#x79F0;&#xFF0C;&#x8FD8;&#x6709;&#x5BF9;&#x5E94;&#x7684; class  &#x7136;&#x540E;&#x4F60;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; <code>WXImageComponent</code> &#x8868;&#x793A; <code>image</code> &#x7EC4;&#x4EF6;&#x7684;&#x5B9E;&#x73B0;&#x3002;&#x5728; <code>.we</code> &#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5199; <code>&lt;image&gt;&lt;/image&gt;</code></p>
+<h3 class="article-heading"><span id="tian-jia-shu-xing">&#x6DFB;&#x52A0;&#x5C5E;&#x6027;</span><a href="#tian-jia-shu-xing" class="header-anchor">#</a></h3><p>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x8981;&#x505A;&#x4E00;&#x4E9B;&#x8BA9; image component &#x66F4;&#x52A0;&#x5F3A;&#x5927;&#x7684;&#x4E8B;&#x60C5;&#x3002;&#x65E2;&#x7136;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x56FE;&#x7247;&#x7684; component&#xFF0C;&#x90A3;&#x5B83;&#x5E94;&#x8BE5;&#x8981;&#x6709;&#x6E90;&#xFF0C;&#x7ED9;&#x4ED6;&#x52A0;&#x4E0A;&#x4E00;&#x4E2A;  <code>src</code> &#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x540C;&#x65F6;&#x7ED9;&#x5B83;&#x52A0;&#x4E0A;&#x4E00;&#x4E2A; <code>resize</code> &#x7684;&#x5C5E;&#x6027;&#xFF08;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;&#x7684;&#x6709; <code>contain/cover/stretch</code>&#xFF09;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><div class="line">@interface WXImageComponent ()</div><div class="line"></div><div class="line">@property (nonatomic, strong) NSString *imageSrc;</div><div class="line">@property (nonatomic, assign) UIViewContentMode resizeMode;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></tbody></table></figure>
+<p>component &#x4E2D;&#x6240;&#x6709;&#x7684; style&#xFF0C;attribute&#xFF0C;events &#x90FD;&#x4F1A;&#x88AB;&#x4F20;&#x9012;&#x5230; Component &#x7684;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#x4E2D;&#x5B58;&#x50A8;&#x4F60;&#x611F;&#x5174;&#x8DA3;&#x7684;&#x4E00;&#x4E9B;&#x5C5E;&#x6027;&#x503C;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><div class="line">@implementation WXImageComponent</div><div class="line"></div><div class="line">- (instancetype)initWithRef:(NSString *)ref type:(NSString *)type styles:(NSDictionary *)styles attributes:(NSDictionary *)attributes events:(NSArray *)events weexInstance:(WXSDKInstance *)weexInstance</div><div class="line">{</div><div class="line">    if (self = [super initWithRef:ref type:type styles:styles attributes:attributes events:events weexInstance:weexInstance]) {</div><div class="line">        _imageSrc = [WXConvert NSString:attributes[@&quot;src&quot;]];</div><div class="line">        _resizeMode = [WXConvert UIViewContentMode:attributes[@&quot;resize&quot;]];</div><div class="line">}</div><div class="line"></div><div class="line">    return self;</div><div class="line">}</div><div class="line"></div><div class="line">@end</div></pre></td></tr></tbody></table></figure>
+<p>attribute &#x4E2D;&#x62FF;&#x5230;&#x7684;&#x503C;&#x7684;&#x7C7B;&#x578B;&#x90FD;&#x662F; <code>id</code>&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;&#x8F6C;&#x6362;&#x65B9;&#x6CD5;&#x628A;&#x5B83;&#x8F6C;&#x6362;&#x5230;&#x4EFB;&#x4F55;&#x503C;&#x3002;Weex SDK &#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E9B;&#x57FA;&#x7840;&#x7684;&#x8F6C;&#x6362;&#x65B9;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x8003; <code>WXConvert</code> &#x7C7B;&#xFF0C;&#x6216;&#x8005;&#x4F60;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x81EA;&#x5DF1;&#x7684;&#x8F6C;&#x6362;&#x51FD;&#x6570;&#x3002;</p>
+<h3 class="article-heading"><span id="hooking-xuan-ran-sheng-ming-zhou-qi">Hooking &#x6E32;&#x67D3;&#x751F;&#x547D;&#x5468;&#x671F;</span><a href="#hooking-xuan-ran-sheng-ming-zhou-qi" class="header-anchor">#</a></h3><p>native &#x7684; component &#x662F;&#x7531; Weex &#x7BA1;&#x7406;&#x7684;&#xFF0C;Weex &#x521B;&#x5EFA;&#xFF0C;&#x5E03;&#x5C40;&#xFF0C;&#x6E32;&#x67D3;&#xFF0C;&#x9500;&#x6BC1;&#x3002;Weex &#x7684; component &#x751F;&#x547D;&#x5468;&#x671F;&#x90FD;&#x662F;&#x53EF;&#x4EE5; hook &#x7684;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x4E9B;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E2D;&#x53BB;&#x505A;&#x81EA;&#x5DF1;&#x7684;&#x4E8B;&#x60C5;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">&#x65B9;&#x6CD5;</th>
+<th>&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">initWithRef:type:&#x2026;</td>
+<td>&#x7528;&#x7ED9;&#x5B9A;&#x7684;&#x5C5E;&#x6027;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;component.</td>
+</tr>
+<tr>
+<td style="text-align:center">layoutDidFinish</td>
+<td>&#x5728;component&#x5B8C;&#x6210;&#x5E03;&#x5C40;&#x65F6;&#x5019;&#x4F1A;&#x8C03;&#x7528;.</td>
+</tr>
+<tr>
+<td style="text-align:center">loadView</td>
+<td>&#x521B;&#x5EFA;component&#x7BA1;&#x7406;&#x7684;view.</td>
+</tr>
+<tr>
+<td style="text-align:center">viewWillLoad</td>
+<td>&#x5728;component&#x7684;view&#x52A0;&#x8F7D;&#x4E4B;&#x524D;&#x4F1A;&#x8C03;&#x7528;.</td>
+</tr>
+<tr>
+<td style="text-align:center">viewDidLoad</td>
+<td>&#x5728;component&#x7684;view&#x52A0;&#x8F7D;&#x5B8C;&#x4E4B;&#x540E;&#x8C03;&#x7528;.</td>
+</tr>
+<tr>
+<td style="text-align:center">viewWillUnload</td>
+<td>&#x5728;component&#x7684;view&#x88AB;&#x91CA;&#x653E;&#x4E4B;&#x524D;&#x8C03;&#x7528;.</td>
+</tr>
+<tr>
+<td style="text-align:center">viewDidUnload</td>
+<td>&#x5728;component&#x7684;view&#x88AB;&#x91CA;&#x653E;&#x4E4B;&#x540E;&#x8C03;&#x7528;.</td>
+</tr>
+<tr>
+<td style="text-align:center">updateStyles:</td>
+<td>&#x5728;component&#x7684;style&#x66F4;&#x65B0;&#x65F6;&#x5019;&#x8C03;&#x7528;.</td>
+</tr>
+<tr>
+<td style="text-align:center">updateAttributes:</td>
+<td>&#x5728;component&#x7684;attribute&#x66F4;&#x65B0;&#x65F6;&#x5019;&#x8C03;&#x7528;.</td>
+</tr>
+<tr>
+<td style="text-align:center">addEvent:</td>
+<td>&#x7ED9;component&#x6DFB;&#x52A0;event&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;.</td>
+</tr>
+<tr>
+<td style="text-align:center">removeEvent:</td>
+<td>&#x5728;event&#x79FB;&#x9664;&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;.</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5728; image component &#x7684;&#x4F8B;&#x5B50;&#x91CC;&#x9762;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x7684; image view &#x7684;&#x8BDD;&#xFF0C;&#x53EF;&#x4EE5;&#x590D;&#x5199; <code>loadView</code>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;.</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><div class="line">- (UIView *)loadView</div><div class="line">{</div><div class="line">return [[WXImageView alloc] init];</div><div class="line">}</div></pre></td></tr></tbody></table></figure>
+<p>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x4F7F;&#x7528; <code>WXImageView</code> &#x6E32;&#x67D3; <code>image</code> component&#x3002;<br>&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A; image component&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x62FF;&#x5230;&#x670D;&#x52A1;&#x5668;&#x56FE;&#x7247;&#xFF0C;&#x800C;&#x4E14;&#x628A;&#x5B83;&#x8BBE;&#x7F6E;&#x8FDB; image view &#x91CC;. &#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#x53EF;&#x4EE5;&#x5728; <code>viewDidLoad</code> &#x65B9;&#x6CD5;&#x4E2D;&#x505A;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x662F;&#x5728; view &#x5DF2;&#x7ECF;&#x88AB;&#x521B;&#x5EFA;&#x800C;&#x4E14;&#x52A0;&#x8F7D;&#x4E86;&#x65F6;&#x5019; Weex SDK &#x4F1A;&#x8C03;&#x7528;&#x5230;&#xFF0C;&#x800C;&#x4E14; <code>viewDidLoad</code> &#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x662F;&#x4F60;&#x505A;&#x989D;&#x5916;&#x521D;&#x59CB;&#x5316;&#x5DE5;&#x4F5C;&#x6BD4;&#x5982;&#x6539;&#x53D8; content mode(&#x4E5F;&#x5C31;&#x662F;&#x8BBE;&#x7F6E;resize) &#x7684;&#x6700;&#x597D;&#x65F6;&#x95F4;.</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><div class="line">- (void)viewDidLoad</div><div class="line">{</div><div class="line">    UIImageView *imageView = (UIImageView *)self.view;</div><div class="line">    imageView.contentMode = _resizeMode;</div><div class="line">    imageView.userInteractionEnabled = YES;</div><div class="line">    imageView.clipsToBounds = YES;</div><div class="line">    imageView.exclusiveTouch = YES;</div><div class="line"></div><div class="line">    // Do your image fetching and updating logic</div><div class="line">}</div></pre></td></tr></tbody></table></figure>
+<p>&#x5982;&#x679C;&#x53EF;&#x4EE5;&#x6539;&#x53D8; image &#x7684; src&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5; hook <code>updateAttributes:</code>  &#x65B9;&#x6CD5;&#x6765;&#x505A;&#x5C5E;&#x6027;&#x66F4;&#x65B0;&#x64CD;&#x4F5C;&#xFF0C;&#x5F53; <code>updateAttributes:</code> &#x6216;&#x8005;  <code>updateStyles:</code> &#x88AB;&#x8C03;&#x7528;&#x7684;&#x65F6;&#x5019;&#xFF0C; component &#x7684; view &#x5DF2;&#x7ECF;&#x52A0;&#x8F7D;&#x5B8C;&#x6210;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><div class="line">- (void)updateAttributes:(NSDictionary *)attributes</div><div class="line">{</div><div class="line">    if (attributes[@&quot;src&quot;]) {</div><div class="line">        _imageSrc = [WXConvert NSString:attributes[@&quot;src&quot;]];</div><div class="line">        // Do your image updating logic</div><div class="line">    }</div><div class="line"></div><div class="line">    if (attributes[@&quot;resize&quot;]) {</div><div class="line">        _resizeMode = [WXConvert UIViewContentMode:attributes[@&quot;resize&quot;]];</div><div class="line">        self.view.contentMode = _resizeMode;</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></tbody></table></figure>
+<p>&#x6216;&#x8BB8;&#x4F60;&#x9700;&#x8981;&#x8003;&#x8651;&#x66F4;&#x591A;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x65B9;&#x6CD5;&#x53BB; Hook&#xFF0C;&#x5F53;&#x5E03;&#x5C40;&#x5B8C;&#x6210;&#x65F6;&#x5019;&#xFF0C;&#x50CF; <code>layoutDidFinish</code>&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x4E86;&#x89E3;&#x66F4;&#x591A;&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x4E00;&#x4E0B;<code>WXComponent.h</code> &#x58F0;&#x660E;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x73B0;&#x5728;&#x4F60;&#x53EF;&#x4EE5;&#x7528;&#x5728;&#x4EFB;&#x4F55; <code>.we</code> &#x6587;&#x4EF6;&#x91CC;&#x9762;&#x4F7F;&#x7528; <code>&lt;image&gt;</code>&#xFF0C;&#x800C;&#x4E14;&#x53EF;&#x4EE5;&#x52A0;&#x4E0A; image &#x7684;&#x5C5E;&#x6027;&#x3002;</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">image</span> <span class="attr">style</span>=<span class="string">&quot;your-custom-style&quot;</span> <span class="attr">src</span>=<span class="string">&quot;image-remote-source&quot;</span> <span class="attr">resize</span>=<span class="string">&quot;contain/cover/stretch&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
+<h5 class="article-heading"><span id="component-fang-fa">component &#x65B9;&#x6CD5;</span><a href="#component-fang-fa" class="header-anchor">#</a></h5><p>WeexSDK 0.9.5 &#x4E4B;&#x540E;&#x652F;&#x6301;&#x4E86;&#x5728; js &#x4E2D;&#x76F4;&#x63A5;&#x8C03;&#x7528; component &#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x91CC;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;</p>
+<ul>
+<li><p>&#x81EA;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A; WXMyCompoenent &#x7684;&#x7EC4;&#x4EF6;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><div class="line">@implementation WXMyComponent</div><div class="line">WX_EXPORT_METHOD(@selector(focus)) // &#x66B4;&#x9732;&#x8BE5;&#x65B9;&#x6CD5;&#x7ED9;js</div><div class="line">- (instancetype)initWithRef:(NSString *)ref type:(NSString *)type styles:(NSDictionary *)styles attributes:(NSDictionary *)attributes events:(NSArray *)events weexInstance:(WXSDKInstance *)weexInstance</div><div class="line">{</div><div class="line">    if (self = [super initWithRef:ref type:type styles:styles attributes:attributes events:events weexInstance:weexInstance]) {</div><div class="line">        // handle your attributes</div><div class="line">        // handle your styles</div><div class="line">    }</div><div class="line"></div><div class="line">    return self;</div><div class="line">}</div><div class="line"></div><div class="line">- (void)focus</div><div class="line">{</div><div class="line">    NSLog(@&quot;you got it&quot;);</div><div class="line">}</div><div class="line">@end</div></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>&#x6CE8;&#x518C;&#x7EC4;&#x4EF6; <code>[WXSDKEngine registerComponent:@&quot;mycomponent&quot; withClass:[WXMyComponent class]]</code></p>
+</li>
+<li><p>&#x5728; weex &#x6587;&#x4EF6;&#x4E2D;&#x8C03;&#x7528;</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">mycomponent</span> <span class="attr">ref</span>=<span class="string">&apos;mycomponent&apos;</span>&gt;</span><span class="tag">&lt;/<span class="name">mycomponent</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="javascript">  <span class="built_in">module</span>.exports = {</span></div><div class="line"><span class="javascript">    created:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span></div><div class="line"><span class="javascript">      <span class="keyword">this</span>.$refs.mycomponent.focus();</span></div><div class="line"><span class="undefined">    }</span></div><div class="line"><span class="undefined">  }</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
+</li>
+</ul>
+</body></html>
+    <div class="article-tips">
+      <p class="tips-text">
+        <a class="xx" href="">Rank this page</a>
+        <span class="spliter"> | </span>
+        <a class="xx" href="">Edit this page on GitHub.</a>
+      </p>
+    </div>
+  </div>
+  
+  <footer id="footer">
+  <div class="footer-inner">
+    <div class="disclaimer">
+      <a target="_blank" href="https://incubator.apache.org/">
+        <img src="//gw.alicdn.com/tfs/TB1pTBZQFXXXXX9XXXXXXXXXXXX-794-280.png" width="100px" alt="Apache Incubator">
+      </a>
+      <p>
+        <span class="title">Disclaimer:</span>
+        <span>Apache Weex is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.</span>
+    </div>
+    <p class="copyright">
+      <img src="//gw.alicdn.com/tfs/TB1bg8SQFXXXXcHXXXXXXXXXXXX-85-170.png" height="16px" alt="Apache"><span>Copyright(c) 2017 The Apache Software Foundation. Licensed under the </span>
+      <a target="_blank" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>
+    </p>
+  </div>
+  <div style="display: none;">
+  <script src="//s95.cnzz.com/z_stat.php?id=1261496509&web_id=1261496509" language="JavaScript"></script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-104559823-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</div>
+
+</footer>
+
+</article>
+
+  </div>
+</div>
+
+
+  <script src="/js/reqwest.js"></script>
+  <script src="/js/common.js"></script>
+  
+    
+    
+    <script src="/js/docsearch.min.js"></script>
+    <script type="text/javascript">
+    docsearch({
+      apiKey: "db5b2379e5ffbc33509585c35ccabba8",
+      indexName: "weex_cn",
+      inputSelector: '#search-input-header',
+      algoliaOptions: {
+        hitsPerPage: 10
+      }
+    });
+    </script>
+  
+</body>
+</html>

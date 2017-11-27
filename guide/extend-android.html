@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Extend Android | Weex</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Module extend#weex sdk support Module extend, Weex SDK provides only rendering capabilities, rather than have other capabilities, such as network, picture, and URL redirection. If you want the these f">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Extend Android">
+<meta property="og:url" content="https://weex.apache.org/guide/extend-android.html">
+<meta property="og:site_name" content="Weex">
+<meta property="og:description" content="Module extend#weex sdk support Module extend, Weex SDK provides only rendering capabilities, rather than have other capabilities, such as network, picture, and URL redirection. If you want the these f">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-11-23T09:34:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Extend Android">
+<meta name="twitter:description" content="Module extend#weex sdk support Module extend, Weex SDK provides only rendering capabilities, rather than have other capabilities, such as network, picture, and URL redirection. If you want the these f">
+  
+    <link rel="alternate" href="/atom.xml" title="Weex" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//gw.alicdn.com/tps/TB1XNqxPXXXXXcSXVXXXXXXXXXX-64-63.png">
+  
+  
+    <link rel="stylesheet" href="/css/docsearch.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/swiper.min.css">
+</head>
+<body id="guide" class="lang-en">
+  
+  <script>
+    window.PAGE_TYPE = "guide";
+    window.ROOT = "/"
+  </script>
+  <header id="header">
+  <div class="navbar">
+    <a id="logo" href="/">
+      <img src="//img.alicdn.com/tps/TB1zBLaPXXXXXXeXXXXXXXXXXXX-121-59.svg" />
+    </a>
+    <div class="main-nav">
+      <ul class="links">
+        <li class="current">
+          <a href="/guide">Guide</a>
+        </li>
+        <li class="">
+          <a href="/references">References</a>
+        </li>
+        <li class="">
+          <a href="/wiki">WiKi</a>
+        </li>
+        <li class="">
+            <a  href="/tools">Tools</a>
+        </li>
+        <li class="dropdown ">
+          <a href="javascript:;">Community</a>
+          <ul class="dropdown-menu subnav">
+            <li>
+              <a href="/resources.html">Resources</a>
+            </li>
+            <li>
+              <a href="/contributing.html">How to Contribute</a>
+            </li>
+            <li>
+              <a href="/development-process.html">Development Process</a>
+            </li>
+            <li>
+              <a href="/who-is-using-weex.html">Who is using Weex?</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="tools">
+        <li>
+          <div class="search">
+  <form id="search-form" class="search-form"> <!-- 搜索框相关 -->
+    <input type="text" id="search-input-header" name="q" results="0" class="form-control search-input" autocomplete="off" autocorrect="off"/>
+    <span class="iconfont icon-search"></span>
+  </form>
+  <div class="results-panel">
+  </div>
+</div>
+        </li>
+        <li>
+          <div class="dropdown select-lang">
+            <a href="javascript:;" class="dropdown-toggle">
+              Language
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu pick-lang">
+              <li>
+                <a href="/guide/extend-android.html" data-lang="en">English</a>
+              </li>
+              <li>
+                <a href="/cn/guide/extend-android.html" data-lang="zh-cn">中文</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <!--<li></li>-->
+      </ul>
+      <ul>
+        <li><a href="https://github.com/apache/incubator-weex/" target="_blank"><span class="btn-github iconfont icon-github"></span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="mobile-nav">
+    <a id="logo" href="/">
+      <img src="//img.alicdn.com/tps/TB1zBLaPXXXXXXeXXXXXXXXXXXX-121-59.svg" />
+    </a>
+    <a class="btn-menu"><span class="iconfont icon-nav"></span></a>
+  </div>
+</header>
+
+  <div id="sidebar" class="">
+  <div class="sidebar-menu">
+    
+      <div class="search">
+  <form id="search-form" class="search-form"> <!-- 搜索框相关 -->
+    <input type="text" id="search-input-sidebar" name="q" results="0" class="form-control search-input" autocomplete="off" autocorrect="off"/>
+    <span class="iconfont icon-search"></span>
+  </form>
+  <div class="results-panel">
+  </div>
+</div>
+      
+
+
+<div class="summary">
+  <ul class="doc-summary">
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Overview</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/guide/index.html" class="sidebar-link  ">Get Started</a>
+              </li>
+            
+              <li>
+                <a href="/guide/integrate-to-your-app.html" class="sidebar-link  ">Integrate to Your App</a>
+              </li>
+            
+              <li>
+                <a href="/guide/front-end-frameworks.html" class="sidebar-link  ">Front-End Frameworks</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Develop</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/guide/set-up-env.html" class="sidebar-link  ">Setup Develop Environment</a>
+              </li>
+            
+              <li>
+                <a href="/guide/integrate-devtool-to-android.html" class="sidebar-link  ">Integrate Devtool to Android</a>
+              </li>
+            
+              <li>
+                <a href="/guide/integrate-devtool-to-ios.html" class="sidebar-link  ">Integrate Devtool to iOS</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Extend</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/guide/extend-web-render.html" class="sidebar-link  ">Extend Web Render</a>
+              </li>
+            
+              <li>
+                <a href="/guide/extend-android.html" class="sidebar-link current ">Extend Android</a>
+              </li>
+            
+              <li>
+                <a href="/guide/extend-ios.html" class="sidebar-link  ">Extend iOS</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/extend-js-framework.html" class="sidebar-link  ">Extend JS framework</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Advanced Guide</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/guide/advanced/path.html" class="sidebar-link  ">Asset Path</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/downgrade.html" class="sidebar-link  ">Downgrade</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/use-vuex-and-vue-router.html" class="sidebar-link  ">Use Vuex and vue-router</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/app-architecture.html" class="sidebar-link  ">Mobile App Architecture</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/page-architecture.html" class="sidebar-link  ">Weex Page Architecture</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+</div>
+
+    
+    <a class="btn-close-sidebar iconfont  icon-close"></a>
+  </div>
+</div>
+
+  
+
+<div class="main-content">
+  <div class="article-wrapper page-layout with-chapter">
+    
+      <div class="doc-nav">
+        
+
+
+<div class="summary">
+  <ul class="doc-summary">
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Overview</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/guide/index.html" class="sidebar-link  ">Get Started</a>
+              </li>
+            
+              <li>
+                <a href="/guide/integrate-to-your-app.html" class="sidebar-link  ">Integrate to Your App</a>
+              </li>
+            
+              <li>
+                <a href="/guide/front-end-frameworks.html" class="sidebar-link  ">Front-End Frameworks</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Develop</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/guide/set-up-env.html" class="sidebar-link  ">Setup Develop Environment</a>
+              </li>
+            
+              <li>
+                <a href="/guide/integrate-devtool-to-android.html" class="sidebar-link  ">Integrate Devtool to Android</a>
+              </li>
+            
+              <li>
+                <a href="/guide/integrate-devtool-to-ios.html" class="sidebar-link  ">Integrate Devtool to iOS</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Extend</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/guide/extend-web-render.html" class="sidebar-link  ">Extend Web Render</a>
+              </li>
+            
+              <li>
+                <a href="/guide/extend-android.html" class="sidebar-link current ">Extend Android</a>
+              </li>
+            
+              <li>
+                <a href="/guide/extend-ios.html" class="sidebar-link  ">Extend iOS</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/extend-js-framework.html" class="sidebar-link  ">Extend JS framework</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Advanced Guide</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/guide/advanced/path.html" class="sidebar-link  ">Asset Path</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/downgrade.html" class="sidebar-link  ">Downgrade</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/use-vuex-and-vue-router.html" class="sidebar-link  ">Use Vuex and vue-router</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/app-architecture.html" class="sidebar-link  ">Mobile App Architecture</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/page-architecture.html" class="sidebar-link  ">Weex Page Architecture</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+</div>
+
+        <div class="sponsor">
+            <a class="sponsor-poster" target="_blank" href="https://render.alipay.com/p/s/taobaonpm_click/weex_banner_click">
+              <img src="https://render.alipay.com/p/s/taobaonpm_click/weex_banner" alt="" width="180px">
+            </a>
+            <div class="sponsor-title">本站点由阿里云赞助支持</div>
+          </div>
+      </div>
+    
+    
+
+<article class="article article-type-guide">
+  <div class="article-entry" itemprop="articleBody">
+    <header class="article-header">
+  
+    
+      <h1 class="article-title" itemprop="name">
+        Extend Android
+      </h1>
+    
+  
+  <!-- <time class="article-date" datetime="2017-11-23T09:34:26.000Z">Updated time: 23/11/2017</time> -->
+</header>
+
+    <html><head></head><body><h2 class="article-heading"><span id="module-extend">Module extend</span><a href="#module-extend" class="header-anchor">#</a></h2><p>weex sdk support Module extend, Weex SDK provides only rendering capabilities, rather than have other capabilities, such as network, picture, and URL redirection. If you want the these features, you need to implement it.</p>
+<p>For example: If you want to implement an address jumping function, you can achieve a Module Follow the steps below.</p>
+<h3 class="article-heading"><span id="step-to-customize-a-module">Step to customize a module</span><a href="#step-to-customize-a-module" class="header-anchor">#</a></h3><ul>
+<li>Customize module must extend WXModule</li>
+<li>@WXModuleAnno annotation must be added, as it is the only the way to recognized by Weex</li>
+<li>The access levels of mehtod must be <strong>public</strong></li>
+<li>The module class also can not be an inner class</li>
+<li>Customize can not be obfuscated by tools like ProGuard</li>
+<li>Module methods will be invoked in UI thread, do not put time consuming operation there</li>
+<li>Weex params can be int, double, float, String, Map, List</li>
+</ul>
+<p>Refer to the following example:</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WXEventModule</span> <span class="keyword">extends</span> <span class="title">WXModule</span></span>{</div><div class="line"></div><div class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String WEEX_CATEGORY=<span class="string">&quot;com.taobao.android.intent.category.WEEX&quot;</span>;</div><div class="line"></div><div class="line">  <span class="meta">@WXModuleAnno</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openURL</span><span class="params">(String url)</span></span>{</div><div class="line">      <span class="comment">//implement your module logic here</span></div><div class="line">    }</div><div class="line">}</div></pre></td></tr></tbody></table></figure>
+<h4 class="article-heading"><span id="support-synchronous-asynchronous-callback">Support synchronous/asynchronous callback</span><a href="#support-synchronous-asynchronous-callback" class="header-anchor">#</a></h4><p>You can add  <code>@JSMethod (uiThread = false or true)</code> annotation to choose the callback mode of moudle. See the follow example.</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">  <span class="comment">// as sync-callback mode</span></div><div class="line"><span class="meta">@JSMethod</span> (uiThread = <span class="keyword">false</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSyncCall</span><span class="params">()</span></span>{</div><div class="line">    WXLogUtils.d(<span class="string">&quot;WXComponentSyncTest : Thread.currentThread().getName());</span></div><div class="line"><span class="string">}</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">// as async-callback mode</span></div><div class="line"><span class="string">@JSMethod (uiThread = true)</span></div><div class="line"><span class="string">public void testAsyncCall(){</span></div><div class="line"><span class="string">    WXLogUtils.e(&quot;</span>WXComponentASynTest : Thread.currentThread().getName() );</div><div class="line">}</div></pre></td></tr></tbody></table></figure>
+<h3 class="article-heading"><span id="register-the-moulde">Register the moulde</span><a href="#register-the-moulde" class="header-anchor">#</a></h3><figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">WXSDKEngine.registerModule(<span class="string">&quot;event&quot;</span>, WXEventModule.class);</div></pre></td></tr></tbody></table></figure>
+<h3 class="article-heading"><span id="use-this-module-in-weex-dsl">Use this module in weex DSL</span><a href="#use-this-module-in-weex-dsl" class="header-anchor">#</a></h3><p>Now <code>event</code> moudle is avaiable in weex, use the module like this:</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> event = weex.requireModule(<span class="string">&apos;event&apos;</span>);</div><div class="line">event.openURL(<span class="string">&quot;http://www.github.com&quot;</span>);</div></pre></td></tr></tbody></table></figure>
+<h3 class="article-heading"><span id="javascript-callback">Javascript callback</span><a href="#javascript-callback" class="header-anchor">#</a></h3><p>If the module need implement a callback to javascript, you just add <code>JSCallback</code> argument to the method you want expose to javascript:</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line"><span class="meta">@WXModuleAnno</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openURL</span><span class="params">(String url,JSCallback callback)</span></span>{</div><div class="line">  <span class="comment">//implement your module logic here</span></div><div class="line">  Map&lt;String,Object&gt; resp = <span class="keyword">new</span> HashMap();</div><div class="line">  resp.put(<span class="string">&quot;result&quot;</span>,<span class="string">&quot;ok&quot;</span>);</div><div class="line">  callback.invoke(resp);</div><div class="line">}</div></pre></td></tr></tbody></table></figure>
+<p>At the javascript side, call the module with javascript function to receive callback data:</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><div class="line">event.openURL(<span class="string">&quot;http://www.github.com&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">resp</span>)</span>{ <span class="built_in">console</span>.log(resp.result); });</div></pre></td></tr></tbody></table></figure>
+<h3 class="article-heading"><span id="component-extend">Component extend</span><a href="#component-extend" class="header-anchor">#</a></h3><p>There are label, image, div, scroll, ect. components in weex, you can also customize your own components.</p>
+<h4 class="article-heading"><span id="step-to-customize-a-component">Step to customize a component</span><a href="#step-to-customize-a-component" class="header-anchor">#</a></h4><ol>
+<li>Customize components must extend WXComponent or WXContainer</li>
+<li>@WXComponentProp(name=value(value is attr or style of dsl)) for it be recognized by weex SDK.</li>
+<li>The access levels of mehtod must be <strong>public</strong></li>
+<li>The component class can not be an inner class</li>
+<li>Customize can not be obfuscated by tools like ProGuard</li>
+<li>Component methods will be invoked in UI thread, do not put time consuming operation there.</li>
+<li>Weex params can be int, double, float, String, Map, List, Array</li>
+</ol>
+<p>Refer to the following example</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyViewComponent</span> <span class="keyword">extends</span> <span class="title">WXComponent</span></span>{</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">MyViewComponent</span><span class="params">(WXSDKInstance instance, WXDomObject dom,</span></span></div><div class="line"><span class="function"><span class="params">                     WXVContainer parent, String instanceId, <span class="keyword">boolean</span> isLazy)</span></span></div><div class="line"><span class="function">   </span>{</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="title">MyViewComponent</span><span class="params">(WXSDKInstance instance, WXDomObject dom,</span></span></div><div class="line"><span class="function"><span class="params">     WXVContainer parent, String instanceId, <span class="keyword">boolean</span> isLazy)</span> </span>{</div><div class="line">    <span class="keyword">super</span>(instance, dom, parent, instanceId, isLazy);</div><div class="line">   }</div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">initView</span><span class="params">()</span> </span>{</div><div class="line">      mHost = <span class="keyword">new</span> TextView(mContext);</div><div class="line">   }</div><div class="line">   <span class="meta">@WXComponentProp</span>(name=WXDomPropConstant.WX_ATTR_VALUE)</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMyViewValue</span><span class="params">(String value)</span> </span>{</div><div class="line">      ((TextView)mHost).setText(value);</div><div class="line">   }</div><div class="line">}</div></pre></td></tr></tbody></table></figure>
+<h4 class="article-heading"><span id="register-the-component">Register the Component</span><a href="#register-the-component" class="header-anchor">#</a></h4><figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">WXSDKEngine.registerComponent(<span class="string">&quot;MyView&quot;</span>, MyViewComponent.class);</div></pre></td></tr></tbody></table></figure>
+<h3 class="article-heading"><span id="adapter-extend">Adapter extend</span><a href="#adapter-extend" class="header-anchor">#</a></h3><h4 class="article-heading"><span id="imagedownloadadapter">ImagedownloadAdapter</span><a href="#imagedownloadadapter" class="header-anchor">#</a></h4><p>Weex SDK has no image download capability, you need to implement <code>IWXImgLoaderAdapter</code>. Refer to the following examples.</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ImageAdapter</span> <span class="keyword">implements</span> <span class="title">IWXImgLoaderAdapter</span> </span>{</div><div class="line"></div><div class="line">  <span class="keyword">private</span> Activity mContext;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ImageAdapter</span><span class="params">(Activity activity)</span> </span>{</div><div class="line">    mContext = activity;</div><div class="line">  }</div><div class="line"></div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setImage</span><span class="params">(<span class="keyword">final</span> String url, <span class="keyword">final</span> ImageView view,</span></span></div><div class="line"><span class="function"><span class="params">      WXImageQuality quality, WXImageStrategy strategy)</span> </span>{</div><div class="line">    mContext.runOnUiThread(<span class="keyword">new</span> Runnable() {</div><div class="line"></div><div class="line">      <span class="meta">@Override</span></div><div class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</div><div class="line">        <span class="keyword">if</span> (TextUtils.isEmpty(url)) {</div><div class="line">          view.setImageBitmap(<span class="keyword">null</span>);</div><div class="line">          <span class="keyword">return</span>;</div><div class="line">        }</div><div class="line">        String temp = url;</div><div class="line">        <span class="keyword">if</span> (url.startsWith(<span class="string">&quot;//&quot;</span>)){</div><div class="line">          temp = <span class="string">&quot;http:&quot;</span> + url;</div><div class="line">        }</div><div class="line">        <span class="keyword">if</span> (view.getLayoutParams().width&lt;=<span class="number">0</span> || view.getLayoutParams().height&lt;=<span class="number">0</span>) {</div><div class="line">          <span class="keyword">return</span>;</div><div class="line">        }</div><div class="line">        Picasso.with(WXEnvironment.getApplication())</div><div class="line">            .load(temp)</div><div class="line">            .resize(view.getLayoutParams().width,</div><div class="line">                view.getLayoutParams().height).into(view);</div><div class="line">      }</div><div class="line">    });</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></tbody></table></figure>
+<h4 class="article-heading"><span id="component-method">Component Method</span><a href="#component-method" class="header-anchor">#</a></h4><p> from WeexSDK <code>0.9.5</code>, you can define your component method</p>
+<p> for example, define a method in component:</p>
+ <figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line"><span class="meta">@JSMethod</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">focus</span><span class="params">()</span></span>{</div><div class="line"> <span class="comment">//method implementation</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
+<p> after your registration for your own custom component, now you can call it in your js file.</p>
+ <figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">mycomponent</span> <span class="attr">id</span>=<span class="string">&apos;mycomponent&apos;</span>&gt;</span><span class="tag">&lt;/<span class="name">mycomponent</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="javascript">  <span class="built_in">module</span>.exports = {</span></div><div class="line"><span class="javascript">    created: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span></div><div class="line"><span class="javascript">      <span class="keyword">this</span>.$el(<span class="string">&apos;mycomponent&apos;</span>).focus();</span></div><div class="line"><span class="undefined">    }</span></div><div class="line"><span class="undefined">  }</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
+<h4 class="article-heading"><span id="proguard-rules">Proguard Rules</span><a href="#proguard-rules" class="header-anchor">#</a></h4><p>If you want to using proguard to protect your source code, please add the following rules to your profile:</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">-keep <span class="class"><span class="keyword">class</span> <span class="title">com</span>.<span class="title">taobao</span>.<span class="title">weex</span>.<span class="title">WXDebugTool</span></span>{*;}</div><div class="line">-keep <span class="class"><span class="keyword">class</span> <span class="title">com</span>.<span class="title">taobao</span>.<span class="title">weex</span>.<span class="title">devtools</span>.<span class="title">common</span>.<span class="title">LogUtil</span></span>{*;}</div><div class="line">-keep <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> * <span class="keyword">extends</span> <span class="title">com</span>.<span class="title">taobao</span>.<span class="title">weex</span>.<span class="title">ui</span>.<span class="title">component</span>.<span class="title">WXComponent</span></span>{*;}</div><div class="line">-keep <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> * <span class="keyword">extends</span> <span class="title">com</span>.<span class="title">taobao</span>.<span class="title">weex</span>.<span class="title">common</span>.<span class="title">WXModule</span></span>{*;}</div><div class="line">-keepclassmembers <span class="class"><span class="keyword">class</span> ** </span>{</div><div class="line">  <span class="meta">@com</span>.taobao.weex.ui.component.WXComponentProp <span class="keyword">public</span> *;</div><div class="line">}</div></pre></td></tr></tbody></table></figure>
+</body></html>
+    <div class="article-tips">
+      <p class="tips-text">
+        <a class="xx" href="">Rank this page</a>
+        <span class="spliter"> | </span>
+        <a class="xx" href="">Edit this page on GitHub.</a>
+      </p>
+    </div>
+  </div>
+  
+  <footer id="footer">
+  <div class="footer-inner">
+    <div class="disclaimer">
+      <a target="_blank" href="https://incubator.apache.org/">
+        <img src="//gw.alicdn.com/tfs/TB1pTBZQFXXXXX9XXXXXXXXXXXX-794-280.png" width="100px" alt="Apache Incubator">
+      </a>
+      <p>
+        <span class="title">Disclaimer:</span>
+        <span>Apache Weex is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.</span>
+    </div>
+    <p class="copyright">
+      <img src="//gw.alicdn.com/tfs/TB1bg8SQFXXXXcHXXXXXXXXXXXX-85-170.png" height="16px" alt="Apache"><span>Copyright(c) 2017 The Apache Software Foundation. Licensed under the </span>
+      <a target="_blank" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>
+    </p>
+  </div>
+  <div style="display: none;">
+  <script src="//s95.cnzz.com/z_stat.php?id=1261496509&web_id=1261496509" language="JavaScript"></script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-104559823-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</div>
+
+</footer>
+
+</article>
+
+  </div>
+</div>
+
+
+  <script src="/js/reqwest.js"></script>
+  <script src="/js/common.js"></script>
+  
+    
+    
+    <script src="/js/docsearch.min.js"></script>
+    <script type="text/javascript">
+    docsearch({
+      apiKey: "a6896fe3619315a7f04e9a76bbbbbfcb",
+      indexName: "weex",
+      inputSelector: '#search-input-header',
+      algoliaOptions: {
+        hitsPerPage: 10
+      }
+    });
+    </script>
+  
+</body>
+</html>

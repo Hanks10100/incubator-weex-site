@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Get Started | Weex</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="What is Weex? Overview Native Components Native Modules Write Once, Run Everywhere   Support Multiple Front-End Frameworks Create Your Own App Setup Develop Build and Run Debug   Next Steps     Wh">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Get Started">
+<meta property="og:url" content="https://weex.apache.org/guide/index.html">
+<meta property="og:site_name" content="Weex">
+<meta property="og:description" content="What is Weex? Overview Native Components Native Modules Write Once, Run Everywhere   Support Multiple Front-End Frameworks Create Your Own App Setup Develop Build and Run Debug   Next Steps     Wh">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://weex.apache.org/guide/images/weex-example-yo.png">
+<meta property="og:image" content="https://weex.apache.org/guide/images/native-component.png">
+<meta property="og:image" content="https://weex.apache.org/guide/images/vue-rax.png">
+<meta property="og:updated_time" content="2017-11-26T09:43:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Get Started">
+<meta name="twitter:description" content="What is Weex? Overview Native Components Native Modules Write Once, Run Everywhere   Support Multiple Front-End Frameworks Create Your Own App Setup Develop Build and Run Debug   Next Steps     Wh">
+<meta name="twitter:image" content="https://weex.apache.org/guide/images/weex-example-yo.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Weex" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//gw.alicdn.com/tps/TB1XNqxPXXXXXcSXVXXXXXXXXXX-64-63.png">
+  
+  
+    <link rel="stylesheet" href="/css/docsearch.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/swiper.min.css">
+</head>
+<body id="guide" class="lang-en">
+  
+  <script>
+    window.PAGE_TYPE = "guide";
+    window.ROOT = "/"
+  </script>
+  <header id="header">
+  <div class="navbar">
+    <a id="logo" href="/">
+      <img src="//img.alicdn.com/tps/TB1zBLaPXXXXXXeXXXXXXXXXXXX-121-59.svg" />
+    </a>
+    <div class="main-nav">
+      <ul class="links">
+        <li class="current">
+          <a href="/guide">Guide</a>
+        </li>
+        <li class="">
+          <a href="/references">References</a>
+        </li>
+        <li class="">
+          <a href="/wiki">WiKi</a>
+        </li>
+        <li class="">
+            <a  href="/tools">Tools</a>
+        </li>
+        <li class="dropdown ">
+          <a href="javascript:;">Community</a>
+          <ul class="dropdown-menu subnav">
+            <li>
+              <a href="/resources.html">Resources</a>
+            </li>
+            <li>
+              <a href="/contributing.html">How to Contribute</a>
+            </li>
+            <li>
+              <a href="/development-process.html">Development Process</a>
+            </li>
+            <li>
+              <a href="/who-is-using-weex.html">Who is using Weex?</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="tools">
+        <li>
+          <div class="search">
+  <form id="search-form" class="search-form"> <!-- 搜索框相关 -->
+    <input type="text" id="search-input-header" name="q" results="0" class="form-control search-input" autocomplete="off" autocorrect="off"/>
+    <span class="iconfont icon-search"></span>
+  </form>
+  <div class="results-panel">
+  </div>
+</div>
+        </li>
+        <li>
+          <div class="dropdown select-lang">
+            <a href="javascript:;" class="dropdown-toggle">
+              Language
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu pick-lang">
+              <li>
+                <a href="/guide/index.html" data-lang="en">English</a>
+              </li>
+              <li>
+                <a href="/cn/guide/index.html" data-lang="zh-cn">中文</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <!--<li></li>-->
+      </ul>
+      <ul>
+        <li><a href="https://github.com/apache/incubator-weex/" target="_blank"><span class="btn-github iconfont icon-github"></span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="mobile-nav">
+    <a id="logo" href="/">
+      <img src="//img.alicdn.com/tps/TB1zBLaPXXXXXXeXXXXXXXXXXXX-121-59.svg" />
+    </a>
+    <a class="btn-menu"><span class="iconfont icon-nav"></span></a>
+  </div>
+</header>
+
+  <div id="sidebar" class="">
+  <div class="sidebar-menu">
+    
+      <div class="search">
+  <form id="search-form" class="search-form"> <!-- 搜索框相关 -->
+    <input type="text" id="search-input-sidebar" name="q" results="0" class="form-control search-input" autocomplete="off" autocorrect="off"/>
+    <span class="iconfont icon-search"></span>
+  </form>
+  <div class="results-panel">
+  </div>
+</div>
+      
+
+
+<div class="summary">
+  <ul class="doc-summary">
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Overview</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/guide/index.html" class="sidebar-link current ">Get Started</a>
+              </li>
+            
+              <li>
+                <a href="/guide/integrate-to-your-app.html" class="sidebar-link  ">Integrate to Your App</a>
+              </li>
+            
+              <li>
+                <a href="/guide/front-end-frameworks.html" class="sidebar-link  ">Front-End Frameworks</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Develop</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/guide/set-up-env.html" class="sidebar-link  ">Setup Develop Environment</a>
+              </li>
+            
+              <li>
+                <a href="/guide/integrate-devtool-to-android.html" class="sidebar-link  ">Integrate Devtool to Android</a>
+              </li>
+            
+              <li>
+                <a href="/guide/integrate-devtool-to-ios.html" class="sidebar-link  ">Integrate Devtool to iOS</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Extend</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/guide/extend-web-render.html" class="sidebar-link  ">Extend Web Render</a>
+              </li>
+            
+              <li>
+                <a href="/guide/extend-android.html" class="sidebar-link  ">Extend Android</a>
+              </li>
+            
+              <li>
+                <a href="/guide/extend-ios.html" class="sidebar-link  ">Extend iOS</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/extend-js-framework.html" class="sidebar-link  ">Extend JS framework</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Advanced Guide</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/guide/advanced/path.html" class="sidebar-link  ">Asset Path</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/downgrade.html" class="sidebar-link  ">Downgrade</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/use-vuex-and-vue-router.html" class="sidebar-link  ">Use Vuex and vue-router</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/app-architecture.html" class="sidebar-link  ">Mobile App Architecture</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/page-architecture.html" class="sidebar-link  ">Weex Page Architecture</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+</div>
+
+    
+    <a class="btn-close-sidebar iconfont  icon-close"></a>
+  </div>
+</div>
+
+  
+
+<div class="main-content">
+  <div class="article-wrapper page-layout with-chapter">
+    
+      <div class="doc-nav">
+        
+
+
+<div class="summary">
+  <ul class="doc-summary">
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Overview</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/guide/index.html" class="sidebar-link current ">Get Started</a>
+              </li>
+            
+              <li>
+                <a href="/guide/integrate-to-your-app.html" class="sidebar-link  ">Integrate to Your App</a>
+              </li>
+            
+              <li>
+                <a href="/guide/front-end-frameworks.html" class="sidebar-link  ">Front-End Frameworks</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Develop</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/guide/set-up-env.html" class="sidebar-link  ">Setup Develop Environment</a>
+              </li>
+            
+              <li>
+                <a href="/guide/integrate-devtool-to-android.html" class="sidebar-link  ">Integrate Devtool to Android</a>
+              </li>
+            
+              <li>
+                <a href="/guide/integrate-devtool-to-ios.html" class="sidebar-link  ">Integrate Devtool to iOS</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Extend</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/guide/extend-web-render.html" class="sidebar-link  ">Extend Web Render</a>
+              </li>
+            
+              <li>
+                <a href="/guide/extend-android.html" class="sidebar-link  ">Extend Android</a>
+              </li>
+            
+              <li>
+                <a href="/guide/extend-ios.html" class="sidebar-link  ">Extend iOS</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/extend-js-framework.html" class="sidebar-link  ">Extend JS framework</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Advanced Guide</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/guide/advanced/path.html" class="sidebar-link  ">Asset Path</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/downgrade.html" class="sidebar-link  ">Downgrade</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/use-vuex-and-vue-router.html" class="sidebar-link  ">Use Vuex and vue-router</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/app-architecture.html" class="sidebar-link  ">Mobile App Architecture</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/page-architecture.html" class="sidebar-link  ">Weex Page Architecture</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+</div>
+
+        <div class="sponsor">
+            <a class="sponsor-poster" target="_blank" href="https://render.alipay.com/p/s/taobaonpm_click/weex_banner_click">
+              <img src="https://render.alipay.com/p/s/taobaonpm_click/weex_banner" alt="" width="180px">
+            </a>
+            <div class="sponsor-title">本站点由阿里云赞助支持</div>
+          </div>
+      </div>
+    
+    
+
+<article class="article article-type-guide">
+  <div class="article-entry" itemprop="articleBody">
+    <header class="article-header">
+  
+    
+      <h1 class="article-title" itemprop="name">
+        Get Started
+      </h1>
+    
+  
+  <!-- <time class="article-date" datetime="2017-11-26T09:43:00.000Z">Updated time: 26/11/2017</time> -->
+</header>
+
+    <html><head></head><body><div class="article-toc">
+
+<!-- toc -->
+<ul>
+<li><a href="#what-is-weex">What is Weex?</a></li>
+<li><a href="#overview">Overview</a><ul>
+<li><a href="#native-components">Native Components</a></li>
+<li><a href="#native-modules">Native Modules</a></li>
+<li><a href="#write-once-run-everywhere">Write Once, Run Everywhere</a></li>
+</ul>
+</li>
+<li><a href="#support-multiple-front-end-frameworks">Support Multiple Front-End Frameworks</a></li>
+<li><a href="#create-your-own-app">Create Your Own App</a><ul>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#develop">Develop</a></li>
+<li><a href="#build-and-run">Build and Run</a></li>
+<li><a href="#debug">Debug</a></li>
+</ul>
+</li>
+<li><a href="#next-steps">Next Steps</a></li>
+</ul>
+<!-- tocstop -->
+</div>
+
+<h2 class="article-heading"><span id="what-is-weex">What is Weex?</span><a href="#what-is-weex" class="header-anchor">#</a></h2><blockquote>
+<p><strong>Weex is a framework for building high-performance mobile apps with modern web development experience.</strong></p>
+</blockquote>
+<p>Weex dedicate to enable developers to use modern web development experience to build both Android, iOS and web applications with a single codebase. In practice, you can use javascript and modern front-end frameworks to develop mobile apps after integrate the WeexSDK.</p>
+<p>The structure of Weex is decoupled, the render engines are separate from the syntax layer. Weex doesn&#x2019;t relay on any specific front-end frameworks, instead, both <a href="https://vuejs.org/" target="_blank" rel="external">Vue.js</a> and <a href="https://alibaba.github.io/rax/" target="_blank" rel="external">Rax</a> can be performed on Weex.</p>
+<p>Another primary goal of Weex is to keep up with modern development technologies and platform capabilities both on web and native. Productivity and performance can be coexisted in Weex. When writing Weex pages, you feel the same with writing web pages. When rendering Weex pages, you feel the same with rendering native pages.</p>
+<h2 class="article-heading"><span id="overview">Overview</span><a href="#overview" class="header-anchor">#</a></h2><p>If you just want to try Weex, You don&#x2019;t need to install anything. There is an <a href="http://dotwe.org/vue/" target="_blank" rel="external">online playground</a> of Weex, you can write single page examples on it without any configurations. The source code should be writing in Vue.js <a href="https://vuejs.org/v2/guide/single-file-components.html" target="_blank" rel="external">single file component</a> syntax (I&#x2019;ll call it <code>.vue</code> in this article), and the render result of the web platform will be displayed in the mock phone shell.</p>
+<p>Here is an <a href="http://dotwe.org/vue/8da01827631b21150a12dd54d7114380" target="_blank" rel="external">example</a> written in Weex and Vue.js:</p>
+<p><img src="./images/weex-example-yo.png" alt="Weex Example"></p>
+<p>This example rendered a latter &#x201C;Yo&#x201D; in the center of the screen. If you want to preview the render result on the real mobile device, you could install the <a href="https://weex-project.io/playground.html" target="_blank" rel="external">Weex playground app</a> or integrate Weex SDK to your own app. And then, scan the QR code on the right of the online playground you will see the result rendered on your own device.</p>
+<p>Within the <code>&lt;template&gt;</code> of the source code, You must be familiar with the <code>&lt;div&gt;</code> which is widely used on the web, and it&#x2019;s also the generic container on Weex. But the <code>&lt;text&gt;</code> component is provided by Weex, it&#x2019;s a block-level text container.</p>
+<blockquote>
+<p>The raw text node can only be placed in the <code>&lt;text&gt;</code> component, otherwise it will be ignored.</p>
+</blockquote>
+<p>Within the <code>&lt;style&gt;</code> tag, you can write CSS to describe the styles of the component, and the styles is <a href="https://vue-loader.vuejs.org/en/features/scoped-css.html" target="_blank" rel="external"><strong>scoped</strong></a> by force on Weex.</p>
+<p><del><a href="https://hanks10100.github.io/weex-vue-examples/" target="_blank" rel="external">Here is more examples written in Weex and Vue.js</a></del>.</p>
+<h3 class="article-heading"><span id="native-components">Native Components</span><a href="#native-components" class="header-anchor">#</a></h3><p>In the example above, the <code>&lt;div&gt;</code> and the <code>&lt;text&gt;</code> is rendered into corresponding native views on mobile device, not <code>HTMLElement</code>.</p>
+<p><img src="./images/native-component.png" alt="Native Components"></p>
+<p>Weex implemented the render engine in each end.</p>
+<p>Under the scene, Weex is using the OEM (native) widgets.</p>
+<p>&#x56E0;&#x4E3A;&#x5B9E;&#x9645;&#x751F;&#x6210;&#x7684;&#x662F;&#x539F;&#x751F;&#x7EC4;&#x4EF6;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x5E76;&#x4E0D;&#x80FD;&#x4F7F;&#x7528; HTML &#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x6807;&#x7B7E;&#xFF0C;WeexSDK &#x5185;&#x7F6E;&#x4E86;&#x4E00;&#x5957;&#x7EC4;&#x4EF6;&#x96C6;&#xFF0C;&#x5305;&#x542B;&#x4E86;&#x5E38;&#x7528;&#x7684;&#x7EC4;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x8986;&#x76D6;&#x5230;&#x5927;&#x90E8;&#x5206;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x3002;&#x57FA;&#x4E8E;&#x8FD9;&#x4E9B;&#x7EC4;&#x4EF6;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; Vue.js &#x7684;&#x8BED;&#x6CD5;&#x5C01;&#x88C5;&#x66F4;&#x4E0A;&#x5C42;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;&#x3002;</p>
+<p>Weex is not a shell of <em>webview</em>, all components is rendered into native views on mobile devices.</p>
+<p>Weex has many <a href="../references/components/">build-in components</a>, it can support the basic usage.</p>
+<p>Except for the build-in components, you can also extend your own native components. But you have to both <a href="./extend-android.html">extend Android</a> and <a href="./extend-ios.html">extend iOS</a>.</p>
+<h3 class="article-heading"><span id="native-modules">Native Modules</span><a href="#native-modules" class="header-anchor">#</a></h3><p>Weex wrap many native utilities into <strong>modules</strong>. You can use <code>weex.requireModule(&apos;xxx&apos;)</code> to require them.</p>
+<p>Weex also lets you reuse your existing Java, Swift, and ObjC code, and access native features and SDKs on iOS and Android.</p>
+<ul>
+<li><p>Such as stream, modal. You can <a href="http://dotwe.org/vue/2ae062b6a04124a35bbe2da3b1e5c07b" target="_blank" rel="external">use stream module to fetch the star count of Vue.js project</a>.</p>
+</li>
+<li><p><a href="../references/modules/">Build-in Modules</a></p>
+</li>
+</ul>
+<h3 class="article-heading"><span id="write-once-run-everywhere">Write Once, Run Everywhere</span><a href="#write-once-run-everywhere" class="header-anchor">#</a></h3><p>You can read <em><a href="../wiki/index.html">How it works</a></em> and <em><a href="../wiki/design-principles.html">Design Principles</a></em> to know more about the technologies and ideas behind Weex.</p>
+<h2 class="article-heading"><span id="support-multiple-front-end-frameworks">Support Multiple Front-End Frameworks</span><a href="#support-multiple-front-end-frameworks" class="header-anchor">#</a></h2><p>Test, build, debug, tools, 3td-party libs.</p>
+<p>Front end is flourishing and productive.</p>
+<p>Weex is not a front-end framework, it contains Android and iOS SDK. Actually, Weex is more like a platform than a framework. Modern front-end frameworks, iOS or Android extensions are able to integrate to Weex.</p>
+<p>Vue.js 2.0 and Rax</p>
+<p><img src="./images/vue-rax.png" alt="Vue and Rax"></p>
+<p>Those frameworks are packaged into Weex SDK, you don&#x2019;t need to require them manually.</p>
+<p>upgrade.</p>
+<p>Rax is a front-end framework with largely React-compatible APIs.</p>
+<p>Weex isn&#x2019;t binding with any specific front-end frameworks, the DOM operations will convert into render directives send to native render engine.</p>
+<p>You can also extend the Weex SDK with your favorite front-end framework, Weex can bring the ability of rendering native components to it. But it&#x2019;s complicate and tricky, you must know many details about our js-native bridge and native render engines. You can read <em><a href="./advanced/extend-js-framework.html">Extend JS Framework</a></em> to learn the details.</p>
+<h2 class="article-heading"><span id="create-your-own-app">Create Your Own App</span><a href="#create-your-own-app" class="header-anchor">#</a></h2><blockquote>
+<p>The following steps assume you have already known the foundational knowledge of Node.js and npm. If you are not familiar with them, you can visit <a href="https://docs.npmjs.com/" target="_blank" rel="external">https://docs.npmjs.com/</a> to learn more about npm.</p>
+</blockquote>
+<p>Weex provide a command line tool, the <a href="http://weex-project.io/tools/toolkit.html" target="_blank" rel="external">weex-toolkit</a>, to help developers to get start easily. It can help you create a starter project, setup iOS and Android development environments, debug, install plugins and so on.</p>
+<p>Currently, the <code>weex-toolkit</code> only supports to create Vue.js project. The <code>rax-cli</code> maybe helpful if you want to use Rax. Please visit <a href="https://alibaba.github.io/rax/" target="_blank" rel="external">Rax&#x2019;s official website</a> for more details.</p>
+<h3 class="article-heading"><span id="setup">Setup</span><a href="#setup" class="header-anchor">#</a></h3><p>Make sure you have already installed the <a href="https://nodejs.org/" target="_blank" rel="external">Node.js</a>, and then install the <code>weex-toolkit</code> globally.</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><div class="line">npm install weex-toolkit -g</div></pre></td></tr></tbody></table></figure>
+<p>It will add the <code>weex</code> command to your global path. Run <code>weex --help</code> can see the manual of all its sub commands. The most useful command is <code>weex create [project-name]</code>:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><div class="line">weex create awesome-app</div></pre></td></tr></tbody></table></figure>
+<p>After doing that, you&#x2019;ll get a standard <strong>Weex + Vue.js</strong> project under the <code>awesome-app</code> folder.</p>
+<h3 class="article-heading"><span id="develop">Develop</span><a href="#develop" class="header-anchor">#</a></h3><p>The next step is get into the path, install dependencies, and start.</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><div class="line"><span class="built_in">cd</span> awesome-app</div><div class="line">npm install</div><div class="line">npm start</div></pre></td></tr></tbody></table></figure>
+<p>It will start a web server on the <code>8080</code> port. You can open <code>http://localhost:8080</code> to see the result rendered on the web. Besides, You can also run <code>weex src/index.vue</code> to preview the web render result in iframe and with a QR code generated on the right, which you can use the <a href="http://weex-project.io/playground.html" target="_blank" rel="external">Weex playground app</a> to scan it to see the render result on the mobile.</p>
+<p><img src="" alt="Preview"></p>
+<p>Same as Web. Be aware of the <a href="../wiki/platfrom-difference.html">difference between Weex and web platform</a>.</p>
+<h3 class="article-heading"><span id="build-and-run">Build and Run</span><a href="#build-and-run" class="header-anchor">#</a></h3><p>By the below command, <code>weex-toolkit</code> will create <code>ios/android</code> project in your new project, you should make sure your project is created by the <code>weex-toolkit</code>.</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><div class="line">weex platform add ios</div><div class="line">weex platform add android</div></pre></td></tr></tbody></table></figure>
+<p>You need to install <a href="https://developer.apple.com/xcode/" target="_blank" rel="external">Xcode</a> for you to provide ios running environment and <code>Android SDK</code> (as you can install <a href="https://developer.android.com/studio/index.html" target="_blank" rel="external">Android Studio</a> to manage your android environment) for you to provide android running environment.</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><div class="line">weex run ios</div><div class="line">weex run android</div><div class="line">weex run web</div></pre></td></tr></tbody></table></figure>
+<h3 class="article-heading"><span id="debug">Debug</span><a href="#debug" class="header-anchor">#</a></h3><p>Weex application debugging capability is one of the powerful features provided by <code>weex-toolkit</code>, you can debug your application on chrome using the below command:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><div class="line">weex debug</div></pre></td></tr></tbody></table></figure>
+<p>For more technical details of <code>weex-toolkit</code>, please refer to the <a href="../tools/toolkit.html">Toolkit Document</a></p>
+<h2 class="article-heading"><span id="next-steps">Next Steps</span><a href="#next-steps" class="header-anchor">#</a></h2><p>(read other documents)</p>
+<ul>
+<li><a href="./integrate-to-your-app.html">Integrate Weex to Your Existing App</a></li>
+</ul>
+<hr>
+<p>Does Weex used in production? Absolutely yes! Weex already used in production before open source.</p>
+</body></html>
+    <div class="article-tips">
+      <p class="tips-text">
+        <a class="xx" href="">Rank this page</a>
+        <span class="spliter"> | </span>
+        <a class="xx" href="">Edit this page on GitHub.</a>
+      </p>
+    </div>
+  </div>
+  
+  <footer id="footer">
+  <div class="footer-inner">
+    <div class="disclaimer">
+      <a target="_blank" href="https://incubator.apache.org/">
+        <img src="//gw.alicdn.com/tfs/TB1pTBZQFXXXXX9XXXXXXXXXXXX-794-280.png" width="100px" alt="Apache Incubator">
+      </a>
+      <p>
+        <span class="title">Disclaimer:</span>
+        <span>Apache Weex is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.</span>
+    </div>
+    <p class="copyright">
+      <img src="//gw.alicdn.com/tfs/TB1bg8SQFXXXXcHXXXXXXXXXXXX-85-170.png" height="16px" alt="Apache"><span>Copyright(c) 2017 The Apache Software Foundation. Licensed under the </span>
+      <a target="_blank" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>
+    </p>
+  </div>
+  <div style="display: none;">
+  <script src="//s95.cnzz.com/z_stat.php?id=1261496509&web_id=1261496509" language="JavaScript"></script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-104559823-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</div>
+
+</footer>
+
+</article>
+
+  </div>
+</div>
+
+
+  <script src="/js/reqwest.js"></script>
+  <script src="/js/common.js"></script>
+  
+    
+    
+    <script src="/js/docsearch.min.js"></script>
+    <script type="text/javascript">
+    docsearch({
+      apiKey: "a6896fe3619315a7f04e9a76bbbbbfcb",
+      indexName: "weex",
+      inputSelector: '#search-input-header',
+      algoliaOptions: {
+        hitsPerPage: 10
+      }
+    });
+    </script>
+  
+</body>
+</html>

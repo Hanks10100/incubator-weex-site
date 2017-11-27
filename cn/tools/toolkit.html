@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>使用 weex-toolkit | Weex</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="weex-toolkit#weex-toolkit 是官方提供的一个脚手架命令行工具，你可以使用它进行 Weex 项目的创建，调试以及打包等功能。 安装#使用 npm 安装: $ npm install -g weex-toolkit 安装成功后，你输入 weex 应该可以看到下面的提示效果；  如果你本地没有安装 node.js 你可以前往官网下载安装。 *请确保你的 node 版本是&amp;gt;=">
+<meta property="og:type" content="website">
+<meta property="og:title" content="使用 weex-toolkit">
+<meta property="og:url" content="https://weex.apache.org/cn/tools/toolkit.html">
+<meta property="og:site_name" content="Weex">
+<meta property="og:description" content="weex-toolkit#weex-toolkit 是官方提供的一个脚手架命令行工具，你可以使用它进行 Weex 项目的创建，调试以及打包等功能。 安装#使用 npm 安装: $ npm install -g weex-toolkit 安装成功后，你输入 weex 应该可以看到下面的提示效果；  如果你本地没有安装 node.js 你可以前往官网下载安装。 *请确保你的 node 版本是&amp;gt;=">
+<meta property="og:locale" content="cn">
+<meta property="og:image" content="https://img.alicdn.com/tfs/TB1NBhdQXXXXXXzXFXXXXXXXXXX-712-343.png">
+<meta property="og:image" content="https://img.alicdn.com/tps/TB13fwSKFXXXXXDaXXXXXXXXXXX-887-828.png">
+<meta property="og:image" content="https://img.alicdn.com/tps/TB1O.nwKFXXXXX8XpXXXXXXXXXX-1436-811.png">
+<meta property="og:image" content="https://img.alicdn.com/tps/TB1.02bKFXXXXXwaXXXXXXXXXXX-2880-1800.png">
+<meta property="og:image" content="https://img.alicdn.com/tps/TB1NjO_KFXXXXcaaXXXXXXXXXXX-2880-1800.png">
+<meta property="og:image" content="https://img.alicdn.com/tps/TB1ck6lKFXXXXbZXFXXXXXXXXXX-2880-1800.png">
+<meta property="og:image" content="https://img.alicdn.com/tps/TB1a7HqKFXXXXXMXFXXXXXXXXXX-2880-1800.png">
+<meta property="og:image" content="https://img.alicdn.com/tps/TB1oY6cKFXXXXXQaXXXXXXXXXXX-2880-1800.png">
+<meta property="og:image" content="https://img.alicdn.com/tps/TB1aPTEKFXXXXXaXXXXXXXXXXXX-1436-813.png">
+<meta property="og:image" content="https://img.alicdn.com/tps/TB1_trbKFXXXXc0XVXXXXXXXXXX-2880-1800.png">
+<meta property="og:image" content="https://gw.alicdn.com/tfs/TB19n4AQXXXXXawXVXXXXXXXXXX-577-70.png">
+<meta property="og:updated_time" content="2017-10-11T12:03:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用 weex-toolkit">
+<meta name="twitter:description" content="weex-toolkit#weex-toolkit 是官方提供的一个脚手架命令行工具，你可以使用它进行 Weex 项目的创建，调试以及打包等功能。 安装#使用 npm 安装: $ npm install -g weex-toolkit 安装成功后，你输入 weex 应该可以看到下面的提示效果；  如果你本地没有安装 node.js 你可以前往官网下载安装。 *请确保你的 node 版本是&amp;gt;=">
+<meta name="twitter:image" content="https://img.alicdn.com/tfs/TB1NBhdQXXXXXXzXFXXXXXXXXXX-712-343.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Weex" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//gw.alicdn.com/tps/TB1XNqxPXXXXXcSXVXXXXXXXXXX-64-63.png">
+  
+  
+    <link rel="stylesheet" href="/css/docsearch.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/swiper.min.css">
+</head>
+<body id="tools" class="lang-cn">
+  
+  <script>
+    window.PAGE_TYPE = "tools";
+    window.ROOT = "/"
+  </script>
+  <header id="header">
+  <div class="navbar">
+    <a id="logo" href="/cn/">
+      <img src="//img.alicdn.com/tps/TB1zBLaPXXXXXXeXXXXXXXXXXXX-121-59.svg" />
+    </a>
+    <div class="main-nav">
+      <ul class="links">
+        <li class="">
+          <a href="/cn/guide">教程</a>
+        </li>
+        <li class="">
+          <a href="/cn/references">手册</a>
+        </li>
+        <li class="">
+          <a href="/cn/wiki">WiKi</a>
+        </li>
+        <li class="current">
+            <a  href="/cn/tools">工具</a>
+        </li>
+        <li class="dropdown ">
+          <a href="javascript:;">社区</a>
+          <ul class="dropdown-menu subnav">
+            <li>
+              <a href="/cn/resources.html">资源</a>
+            </li>
+            <li>
+              <a href="/cn/contributing.html">如何参与贡献</a>
+            </li>
+            <li>
+              <a href="/cn/development-process.html">开发流程</a>
+            </li>
+            <li>
+              <a href="/cn/who-is-using-weex.html">谁在使用 Weex</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="tools">
+        <li>
+          <div class="search">
+  <form id="search-form" class="search-form"> <!-- 搜索框相关 -->
+    <input type="text" id="search-input-header" name="q" results="0" class="form-control search-input" autocomplete="off" autocorrect="off"/>
+    <span class="iconfont icon-search"></span>
+  </form>
+  <div class="results-panel">
+  </div>
+</div>
+        </li>
+        <li>
+          <div class="dropdown select-lang">
+            <a href="javascript:;" class="dropdown-toggle">
+              Language
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu pick-lang">
+              <li>
+                <a href="/tools/toolkit.html" data-lang="en">English</a>
+              </li>
+              <li>
+                <a href="/cn/tools/toolkit.html" data-lang="zh-cn">中文</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <!--<li></li>-->
+      </ul>
+      <ul>
+        <li><a href="https://github.com/apache/incubator-weex/" target="_blank"><span class="btn-github iconfont icon-github"></span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="mobile-nav">
+    <a id="logo" href="/cn/">
+      <img src="//img.alicdn.com/tps/TB1zBLaPXXXXXXeXXXXXXXXXXXX-121-59.svg" />
+    </a>
+    <a class="btn-menu"><span class="iconfont icon-nav"></span></a>
+  </div>
+</header>
+
+  <div id="sidebar" class="">
+  <div class="sidebar-menu">
+    
+      <ul class="main-nav">
+        <li>
+          <div class="search">
+  <form id="search-form" class="search-form"> <!-- 搜索框相关 -->
+    <input type="text" id="search-input-sidebar" name="q" results="0" class="form-control search-input" autocomplete="off" autocorrect="off"/>
+    <span class="iconfont icon-search"></span>
+  </form>
+  <div class="results-panel">
+  </div>
+</div>
+        </li>
+        <li>
+          <a class="" href="/cn/guide">
+            教程
+          </a>
+        </li>
+        <li>
+          <a class="" href="/cn/references">
+            手册
+          </a>
+        </li>
+        <li>
+          <a href="/cn/faq.html">
+            FAQ
+          </a>
+        </li>
+        <li>
+            <p>工具</p>
+            <ul class="subnav">
+              <li>
+                <a href="/cn/playground.html">Playground</a>
+              </li>
+              <li>
+                <a href="/cn/guide/tools/devtools.html">Devtools</a>
+              </li>
+              <li>
+                <a href="/cn/guide/tools/weexpack.html">Weexpack</a>
+              </li>
+              <li>
+                <a href="http://dotwe.org" target="_blank">Snippets</a>
+              </li>
+              <li>
+                <a href="https://market.dotwe.org" target="_blank">Market</a>
+              </li>
+              <li>
+                <a href="/cn/guide/tools/plugin.html">Weex Language Plugin</a>
+              </li>
+            </ul>
+        </li>
+        <li>
+          <a href="https://github.com/apache/incubator-weex/" target="_blank">
+            GitHub
+          </a>
+        </li>
+      </ul>
+    
+    <a class="btn-close-sidebar iconfont  icon-close"></a>
+  </div>
+</div>
+
+  
+
+<div class="main-content">
+  <div class="article-wrapper page-layout with-chapter">
+    
+      <div class="doc-nav">
+        
+
+
+<div class="summary">
+  <ul class="doc-summary">
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link"></span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/cn/tools/index.html" class="sidebar-link  ">开发工具</a>
+              </li>
+            
+              <li>
+                <a href="/cn/tools/helpers.html" class="sidebar-link  ">Weex语法支持插件</a>
+              </li>
+            
+              <li>
+                <a href="/cn/tools/toolkit.html" class="sidebar-link current ">使用 weex-toolkit</a>
+              </li>
+            
+              <li>
+                <a href="/cn/tools/market.html" class="sidebar-link  ">Weex Market</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+</div>
+
+        <div class="sponsor">
+            <a class="sponsor-poster" target="_blank" href="https://render.alipay.com/p/s/taobaonpm_click/weex_banner_click">
+              <img src="https://render.alipay.com/p/s/taobaonpm_click/weex_banner" alt="" width="180px">
+            </a>
+            <div class="sponsor-title">本站点由阿里云赞助支持</div>
+          </div>
+      </div>
+    
+    
+
+<article class="article article-type-tools">
+  <div class="article-entry" itemprop="articleBody">
+    <header class="article-header">
+  
+    
+      <h1 class="article-title" itemprop="name">
+        使用 weex-toolkit
+      </h1>
+    
+  
+  <!-- <time class="article-date" datetime="2017-10-11T12:03:02.000Z">Updated time: 11/10/2017</time> -->
+</header>
+
+    <html><head></head><body><h1 class="article-heading"><span id="weex-toolkit">weex-toolkit</span><a href="#weex-toolkit" class="header-anchor">#</a></h1><p><a href="https://github.com/weexteam/weex-toolkit" target="_blank" rel="external">weex-toolkit</a> &#x662F;&#x5B98;&#x65B9;&#x63D0;&#x4F9B;&#x7684;&#x4E00;&#x4E2A;&#x811A;&#x624B;&#x67B6;&#x547D;&#x4EE4;&#x884C;&#x5DE5;&#x5177;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5B83;&#x8FDB;&#x884C; Weex &#x9879;&#x76EE;&#x7684;&#x521B;&#x5EFA;&#xFF0C;&#x8C03;&#x8BD5;&#x4EE5;&#x53CA;&#x6253;&#x5305;&#x7B49;&#x529F;&#x80FD;&#x3002;</p>
+<h3 class="article-heading"><span id="an-zhuang">&#x5B89;&#x88C5;</span><a href="#an-zhuang" class="header-anchor">#</a></h3><p>&#x4F7F;&#x7528; <code>npm</code> &#x5B89;&#x88C5;:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><div class="line">$ npm install -g weex-toolkit</div></pre></td></tr></tbody></table></figure>
+<p>&#x5B89;&#x88C5;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x4F60;&#x8F93;&#x5165; <code>weex</code> &#x5E94;&#x8BE5;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x4E0B;&#x9762;&#x7684;&#x63D0;&#x793A;&#x6548;&#x679C;&#xFF1B;</p>
+<p><img src="https://img.alicdn.com/tfs/TB1NBhdQXXXXXXzXFXXXXXXXXXX-712-343.png" alt="weex-commands"></p>
+<p>&#x5982;&#x679C;&#x4F60;&#x672C;&#x5730;&#x6CA1;&#x6709;&#x5B89;&#x88C5; node.js &#x4F60;&#x53EF;&#x4EE5;&#x524D;&#x5F80;<a href="https://nodejs.org/en/" target="_blank" rel="external">&#x5B98;&#x7F51;</a>&#x4E0B;&#x8F7D;&#x5B89;&#x88C5;&#x3002;</p>
+<p>*&#x8BF7;&#x786E;&#x4FDD;&#x4F60;&#x7684; node &#x7248;&#x672C;&#x662F;&gt;=6&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <a href="https://github.com/tj/n" target="_blank" rel="external">n</a> &#x6765;&#x8FDB;&#x884C; node &#x7684;&#x7248;&#x672C;&#x7BA1;&#x7406;&#x3002;</p>
+<p>&#x4E2D;&#x56FD;&#x7528;&#x6237;&#x5982;&#x679C;npm&#x906D;&#x9047;&#x7F51;&#x7EDC;&#x95EE;&#x9898;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6DD8;&#x5B9D;&#x7684; <a href="https://npm.taobao.org/" target="_blank" rel="external">cnpm</a> &#x955C;&#x50CF;&#xFF1A;</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><div class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</div><div class="line">$ cnpm install -g weex-toolkit</div></pre></td></tr></tbody></table></figure>
+<p>&#x5982;&#x679C;&#x4F60;&#x5B89;&#x88C5;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x9047;&#x5230;&#x4E86;&#x95EE;&#x9898;&#xFF0C;&#x6BD4;&#x5982; <em>permission error</em> &#x4F60;&#x53EF;&#x4EE5;&#x53BB; <a href="https://github.com/weexteam/weex-toolkit/issues" target="_blank" rel="external">weex-toolkit issues</a> &#x627E;&#x5230;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x3002;</p>
+<h3 class="article-heading"><span id="chu-shi-hua-weex-xiang-mu">&#x521D;&#x59CB;&#x5316; weex &#x9879;&#x76EE;</span><a href="#chu-shi-hua-weex-xiang-mu" class="header-anchor">#</a></h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><div class="line">$ weex init awesome-project</div></pre></td></tr></tbody></table></figure>
+<p>&#x6267;&#x884C;&#x5B8C;&#x547D;&#x4EE4;&#x540E;&#xFF0C;&#x5728; <code>awesome-project</code> &#x76EE;&#x5F55;&#x4E2D;&#x5C31;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x4F7F;&#x7528; <code>Weex</code> &#x548C; <code>Vue</code> &#x7684;&#x6A21;&#x677F;&#x9879;&#x76EE;&#x3002;</p>
+<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x8FDB;&#x5165;&#x9879;&#x76EE;&#x6240;&#x5728;&#x8DEF;&#x5F84;&#xFF0C;<code>weex-toolkit</code> &#x5DF2;&#x7ECF;&#x4E3A;&#x6211;&#x4EEC;&#x751F;&#x6210;&#x4E86;&#x6807;&#x51C6;&#x9879;&#x76EE;&#x7ED3;&#x6784;&#x3002;</p>
+<p>&#x5728; <code>package.json</code> &#x4E2D;&#xFF0C;&#x5DF2;&#x7ECF;&#x914D;&#x7F6E;&#x597D;&#x4E86;&#x51E0;&#x4E2A;&#x5E38;&#x7528;&#x7684; npm script&#xFF0C;&#x5206;&#x522B;&#x662F;&#xFF1A;</p>
+<ul>
+<li><code>build</code>: &#x6E90;&#x7801;&#x6253;&#x5305;&#xFF0C;&#x751F;&#x6210; JS Bundle</li>
+<li><code>dev</code>: webpack watch &#x6A21;&#x5F0F;&#xFF0C;&#x65B9;&#x4FBF;&#x5F00;&#x53D1;</li>
+<li><code>serve</code>: &#x5F00;&#x542F;&#x9759;&#x6001;&#x670D;&#x52A1;&#x5668;</li>
+<li><code>debug</code>: &#x8C03;&#x8BD5;&#x6A21;&#x5F0F;</li>
+</ul>
+<p>&#x6211;&#x4EEC;&#x5148;&#x901A;&#x8FC7; <code>npm install</code> &#x5B89;&#x88C5;&#x9879;&#x76EE;&#x4F9D;&#x8D56;&#x3002;&#x4E4B;&#x540E;&#x8FD0;&#x884C;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x7684; <code>npm run dev &amp; npm run serve</code> &#x5F00;&#x542F; watch &#x6A21;&#x5F0F;&#x548C;&#x9759;&#x6001;&#x670D;&#x52A1;&#x5668;&#x3002;</p>
+<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x6253;&#x5F00;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x8FDB;&#x5165; <code>http://localhost:8080/index.html</code> &#x5373;&#x53EF;&#x770B;&#x5230; Weex h5 &#x9875;&#x9762;&#x3002;</p>
+<h3 class="article-heading"><span id="shi-shi-yu-lan">&#x5B9E;&#x65F6;&#x9884;&#x89C8;</span><a href="#shi-shi-yu-lan" class="header-anchor">#</a></h3><p><code>weex-toolkit</code> &#x652F;&#x6301;&#x9884;&#x89C8;&#x4F60;&#x5F53;&#x524D;&#x5F00;&#x53D1;&#x7684;weex&#x9875;&#x9762;(<code>.we</code>&#x6216;&#x8005;<code>.vue</code>)&#xFF0C;&#x4F60;&#x53EA;&#x9700;&#x8981;&#x6307;&#x5B9A;&#x9884;&#x89C8;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x5373;&#x53EF;&#xFF1A;</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><div class="line">$ weex src/foo.vue</div></pre></td></tr></tbody></table></figure>
+<p>&#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x81EA;&#x52A8;&#x5F39;&#x51FA;&#x9875;&#x9762;&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x4F60;&#x6240;&#x7F16;&#x8F91;&#x7684; Weex&#x9875;&#x9762;&#x7684;&#x5177;&#x4F53;&#x6548;&#x679C;&#x548C;&#x9875;&#x9762;&#x5E03;&#x5C40;&#x3002;&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528; <a href="https://weex.apache.org/cn/playground.html">Playground</a> &#x626B;&#x63CF;&#x53F3;&#x8FB9;&#x7684;&#x4E8C;&#x7EF4;&#x7801;&#xFF0C;&#x5C31;&#x80FD;&#x591F;&#x770B;&#x5230; Weex &#x5728; Android/IOS &#x8BBE;&#x5907;&#x4E0A;&#x7684;&#x6548;&#x679C;&#x4E86;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x9884;&#x89C8;&#x6574;&#x4E2A;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x8F93;&#x5165;&#x8FD9;&#x6837;&#x7684;&#x547D;&#x4EE4;:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><div class="line">$ weex src --entry src/foo.vue</div></pre></td></tr></tbody></table></figure>
+<p>&#x4F60;&#x9700;&#x8981;&#x5728;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x6307;&#x5B9A;&#x9884;&#x89C8;&#x7684;&#x76EE;&#x5F55;&#x548C;&#x5165;&#x53E3;&#x6587;&#x4EF6;&#x3002;</p>
+<h3 class="article-heading"><span id="da-bao-weex-xiang-mu">&#x6253;&#x5305;weex&#x9879;&#x76EE;</span><a href="#da-bao-weex-xiang-mu" class="header-anchor">#</a></h3><p>&#x5982;&#x679C;&#x5F00;&#x53D1;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>weex compile</code> &#x901A;&#x8FC7;&#x547D;&#x4EE4;&#x884C;&#x5DE5;&#x5177;&#x8FDB;&#x884C;&#x5355;&#x4E2A;&#x6587;&#x4EF6;&#x6216;&#x8005;&#x6574;&#x4E2A;&#x9879;&#x76EE;&#x7684;&#x6253;&#x5305;&#x3002;</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><div class="line">weex compile src/foo.vue dist</div></pre></td></tr></tbody></table></figure>
+<p>&#x547D;&#x4EE4;&#x884C;&#x9700;&#x8981;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x4F60;&#x7684;&#x6E90;&#x7801;&#x6587;&#x4EF6;&#x6216;&#x8005;&#x76EE;&#x5F55;&#xFF0C; &#x4EE5;&#x53CA;&#x4F60;&#x751F;&#x6210;&#x6253;&#x5305;&#x540E;&#x7684;&#x76EE;&#x5F55;&#x5730;&#x5740;&#x3002;</p>
+<h3 class="article-heading"><span id="diao-shi-weex-ye-mian">&#x8C03;&#x8BD5; Weex &#x9875;&#x9762;</span><a href="#diao-shi-weex-ye-mian" class="header-anchor">#</a></h3><p>weex-toolkit&#x652F;&#x6301;&#x8C03;&#x8BD5;&#x5DE5;&#x5177;&#x3002;<strong><a href="https://github.com/weexteam/weex-devtool" target="_blank" rel="external">weex devtools</a></strong> &#xFF0C;&#x5B83;&#x662F;&#x4E13;&#x95E8;&#x4E3A;Weex&#x5B9A;&#x5236;&#x7684;&#x4E00;&#x6B3E;&#x5B9E;&#x73B0;&#x4E86; <a href="https://developer.chrome.com/devtools/docs/debugger-protocol" target="_blank" rel="external"><strong>Chrome Debugging Protocol</strong></a> &#x7684; inspect/debug &#x5DE5;&#x5177;&#xFF0C;&#x80FD;&#x591F;&#x5E2E;&#x52A9;&#x4F60;&#x5FEB;&#x901F;&#x67E5;&#x770B; app &#x8FD0;&#x884C;&#x72B6;&#x6001;&#x548C;&#x8C03;&#x8BD5; Weex &#x4E2D;&#x7684; JS &#x4EE3;&#x7801;&#xFF0C;&#x5F53;&#x524D;&#x652F;&#x6301; <strong>IOS</strong> &#x548C; <strong>Android</strong> &#x4E24;&#x4E2A;&#x5E73;&#x53F0;&#x3002;</p>
+<h4 class="article-heading"><span id="yong-fa">&#x7528;&#x6CD5;</span><a href="#yong-fa" class="header-anchor">#</a></h4><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><div class="line">weex debug [options] [we_file|bundles_dir]</div></pre></td></tr></tbody></table></figure>
+<p>  &#x9009;&#x9879;:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><div class="line">-h, --help           &#x663E;&#x793A;&#x5E2E;&#x52A9;</div><div class="line">-V, --verbose        &#x663E;&#x793A; debug &#x670D;&#x52A1;&#x5668;&#x8FD0;&#x884C;&#x65F6;&#x7684;&#x5404;&#x79CD; log</div><div class="line">-v, --version        &#x663E;&#x793A;&#x7248;&#x672C;</div><div class="line">-p, --port [port]    &#x8BBE;&#x7F6E; debug &#x670D;&#x52A1;&#x5668;&#x7AEF;&#x53E3;&#x53F7; &#x9ED8;&#x8BA4;&#x4E3A;8088</div><div class="line">-e, --entry [entry]  debug &#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#x65F6;,&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x6307;&#x5B9A;&#x6574;&#x4E2A;&#x76EE;&#x5F55;&#x7684;&#x5165;&#x53E3; bundle &#x6587;&#x4EF6;,&#x8FD9;&#x4E2A; bundle &#x6587;&#x4EF6;&#x7684;&#x5730;&#x5740;&#x4F1A;&#x663E;&#x793A;&#x5728; debug &#x4E3B;&#x9875;&#x4E0A;(&#x4F5C;&#x4E3A;&#x4E8C;&#x7EF4;&#x7801;)</div><div class="line">-m, --mode [mode]    &#x8BBE;&#x7F6E;&#x6784;&#x5EFA; we &#x6587;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;transformer &#x6700;&#x57FA;&#x7840;&#x7684;&#x98CE;&#x683C;&#x9002;&#x5408;&#x5355;&#x6587;&#x4EF6;&#xFF0C; loader:webpack &#x98CE;&#x683C; &#x9002;&#x5408;&#x6A21;&#x5757;&#x5316;&#x7684;&#x591A;&#x6587;&#x4EF6; . &#x9ED8;&#x8BA4;&#x4E3A; transformer</div></pre></td></tr></tbody></table></figure>
+<h4 class="article-heading"><span id="kai-qi-diao-shi">&#x5F00;&#x542F;&#x8C03;&#x8BD5;</span><a href="#kai-qi-diao-shi" class="header-anchor">#</a></h4><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><div class="line">$ weex debug</div></pre></td></tr></tbody></table></figure>
+<p>&#x5355;&#x7EAF;&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x8C03;&#x8BD5;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5E76;&#x540C;&#x65F6;&#x5524;&#x8D77;Chrome&#x6D4F;&#x89C8;&#x5668;&#x6253;&#x5F00;<code>&#x8C03;&#x8BD5;&#x4E3B;&#x9875;</code>&#x3002;<br>&#x8FD9;&#x4E2A;<code>&#x8C03;&#x8BD5;&#x4E3B;&#x9875;</code>&#x4E0A;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;&#x4E8C;&#x7EF4;&#x7801;&#xFF0C;&#x4F7F;&#x7528; Playground App &#x626B;&#x8FD9;&#x4E2A;&#x4E8C;&#x7EF4;&#x7801;&#x53EF;&#x4EE5;&#x5F00;&#x542F; Playground &#x8C03;&#x8BD5;&#x3002;<br>&#x5F00;&#x542F;&#x8C03;&#x8BD5;&#x540E;,&#x8BBE;&#x5907;&#x5217;&#x8868;&#x4E2D;&#x4F1A;&#x51FA;&#x73B0;&#x60A8;&#x7684;&#x8BBE;&#x5907;&#xFF0C;&#x6839;&#x636E;&#x63D0;&#x793A;&#x8FDB;&#x884C;&#x540E;&#x7EED;&#x7684;&#x8C03;&#x8BD5;&#x64CD;&#x4F5C;&#x3002;</p>
+<h4 class="article-heading"><span id="diao-shi-we-vue-wen-jian">&#x8C03;&#x8BD5; <code>.we</code> | <code>.vue</code> &#x6587;&#x4EF6;</span><a href="#diao-shi-we-vue-wen-jian" class="header-anchor">#</a></h4><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><div class="line">$ weex debug your_weex.vue</div></pre></td></tr></tbody></table></figure>
+<p>&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#x4F1A;&#x5C06; <code>your_weex.vue</code> &#x7F16;&#x8BD1;&#x6210; <code>JS Bundle</code> &#x6587;&#x4EF6; &#x90E8;&#x7F72;&#x5230; debug &#x670D;&#x52A1;&#x5668;&#xFF1B;<br>&#x5E76;&#x542F;&#x52A8;debug&#x670D;&#x52A1;&#x5668;&#x5982;&#x4E0A;&#x8FF0;&#x547D;&#x4EE4;&#x90A3;&#x6837;&#x6253;&#x5F00;&#x7684;<code>&#x8C03;&#x8BD5;vue&#x4E3B;&#x9875;</code>&#x4F1A;&#x591A;&#x663E;&#x793A;&#x4E00;&#x4E2A;&#x4E8C;&#x7EF4;&#x7801;&#xFF0C;&#x4F7F;&#x7528; Playground App&#x626B;&#x8FD9;&#x4E2A;&#x4E8C;&#x7EF4;&#x7801;&#x7801;&#x53EF;&#x4EE5;&#x52A0;&#x8F7D; <code>your_weex.we</code> (&#x6CE8;&#x610F;&#x8981;&#x5148;&#x626B;&#x63CF;&#x5F00;&#x542F;&#x8C03;&#x8BD5;&#x7684;&#x90A3;&#x4E2A;&#x4E8C;&#x7EF4;&#x7801;&#x7801;)&#x3002;<br>&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#x4F1A;&#x81EA;&#x52A8;&#x68C0;&#x6D4B; <code>your_weex.we</code> &#x6587;&#x4EF6;&#x53D8;&#x52A8;&#xFF0C;&#x5982;&#x679C;&#x53D1;&#x73B0;&#x5185;&#x5BB9;&#x88AB;&#x4FEE;&#x6539;&#x5219;&#x7ACB;&#x5373;&#x91CD;&#x65B0;&#x7F16;&#x8BD1;&#x90E8;&#x7F72;&#xFF0C;&#x5E76;&#x5237;&#x65B0; <code>debugger</code> &#x9875;&#x9762;&#x3002;<br>.</p>
+<h4 class="article-heading"><span id="diao-shi-zheng-ge-bundle-we-wen-jian-jia">&#x8C03;&#x8BD5;&#x6574;&#x4E2A;bundle/we&#x6587;&#x4EF6;&#x5939;</span><a href="#diao-shi-zheng-ge-bundle-we-wen-jian-jia" class="header-anchor">#</a></h4><p>&#x540C;&#x6837;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x8C03;&#x8BD5;&#x6574;&#x4E2A;&#x76EE;&#x5F55;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x4F60;&#x53EA;&#x9700;&#x8981;&#x4F20;&#x5165;&#x76EE;&#x5F55;&#x7684;&#x8DEF;&#x5F84;&#x548C;&#x5165;&#x53E3;&#x6587;&#x4EF6;&#x5373;&#x53EF;&#xFF1B;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><div class="line">$weex debug your/we/path  -e index.we</div></pre></td></tr></tbody></table></figure>
+<p>&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#x4F1A;&#x7F16;&#x8BD1;&#x4F60;&#x6307;&#x5B9A;&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x6240;&#x6709;&#x7684; <code>.we</code> &#x6587;&#x4EF6;,&#x5E76;&#x628A;&#x7F16;&#x8BD1;&#x597D;&#x7684; JS Bundle &#x90E8;&#x7F72;&#x5230; debug &#x670D;&#x52A1;&#x5668;,&#x4ED6;&#x4EEC;&#x7684;&#x5730;&#x5740;&#x4F1A;&#x6620;&#x5C04;&#x5230; <a href="http://lcoalhost:8088/weex/" target="_blank" rel="external">http://lcoalhost:8088/weex/</a> &#x4E0B;<br>&#x6BD4;&#x5982; <code>your/we/path/index.we</code> &#x53EF;&#x4EE5;&#x901A;&#x8FC7; <a href="http://lcoalhost:8088/weex/index.js" target="_blank" rel="external">http://lcoalhost:8088/weex/index.js</a> &#x8BBF;&#x95EE;&#x3002;<br><code>your/we/path/demo/test.we</code> &#x53EF;&#x4EE5;&#x901A;&#x8FC7; <a href="http://lcoalhost:8088/weex/demo/index.js" target="_blank" rel="external">http://lcoalhost:8088/weex/demo/index.js</a> &#x3002;</p>
+<p><code>-e</code> &#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x5165;&#x53E3;&#x7684; <code>.we</code> &#x6587;&#x4EF6;&#xFF0C;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x5730;&#x5740;&#x4F1A;&#x663E;&#x793A;&#x5728;<code>&#x8C03;&#x8BD5;&#x4E3B;&#x9875;</code>&#x4E0A;(&#x4F5C;&#x4E3A;&#x4E8C;&#x7EF4;&#x7801;)&#x3002;</p>
+<h4 class="article-heading"><span id="te-xing">&#x7279;&#x6027;</span><a href="#te-xing" class="header-anchor">#</a></h4><h5 class="article-heading"><span id="lian-jie-she-bei">&#x8FDE;&#x63A5;&#x8BBE;&#x5907;</span><a href="#lian-jie-she-bei" class="header-anchor">#</a></h5><p><img src="https://img.alicdn.com/tps/TB13fwSKFXXXXXDaXXXXXXXXXXX-887-828.png" alt="devtools-main"></p>
+<h5 class="article-heading"><span id="inspector">Inspector</span><a href="#inspector" class="header-anchor">#</a></h5><p> Inspector &#x80FD;&#x591F;&#x7528;&#x6765;&#x67E5;&#x770B; <code>Element</code> \ <code>NetWork</code> \ <code>Console log</code> \ <code>ScreenCast</code> \ <code>BoxModel</code> \ <code>Native View</code> &#x7B49;&#x3002;</p>
+<p><img src="https://img.alicdn.com/tps/TB1O.nwKFXXXXX8XpXXXXXXXXXX-1436-811.png" alt="devtools-inspector"></p>
+<h5 class="article-heading"><span id="element">Element</span><a href="#element" class="header-anchor">#</a></h5><p><img src="https://img.alicdn.com/tps/TB1.02bKFXXXXXwaXXXXXXXXXXX-2880-1800.png" alt="inspector-element"></p>
+<h5 class="article-heading"><span id="network">NetWork</span><a href="#network" class="header-anchor">#</a></h5><h5 class="article-heading"><span id="cha-kan-wang-luo-qing-qiu-de-zong-hao-shi-he-yan-shi">&#x67E5;&#x770B;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x7684;&#x603B;&#x8017;&#x65F6;&#x548C;&#x5EF6;&#x65F6;</span><a href="#cha-kan-wang-luo-qing-qiu-de-zong-hao-shi-he-yan-shi" class="header-anchor">#</a></h5><p><img src="https://img.alicdn.com/tps/TB1NjO_KFXXXXcaaXXXXXXXXXXX-2880-1800.png" alt="inspector-network"></p>
+<h5 class="article-heading"><span id="cha-kan-wang-luo-qing-qiu-de-header-he-response">&#x67E5;&#x770B;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x7684;header&#x548C;response</span><a href="#cha-kan-wang-luo-qing-qiu-de-header-he-response" class="header-anchor">#</a></h5><p><img src="https://img.alicdn.com/tps/TB1ck6lKFXXXXbZXFXXXXXXXXXX-2880-1800.png" alt="inspector-network"></p>
+<h5 class="article-heading"><span id="kong-zhi-tai">&#x63A7;&#x5236;&#x53F0;</span><a href="#kong-zhi-tai" class="header-anchor">#</a></h5><p><img src="https://img.alicdn.com/tps/TB1a7HqKFXXXXXMXFXXXXXXXXXX-2880-1800.png" alt="inspector-console"></p>
+<h5 class="article-heading"><span id="zi-yuan">&#x8D44;&#x6E90;</span><a href="#zi-yuan" class="header-anchor">#</a></h5><p><img src="https://img.alicdn.com/tps/TB1oY6cKFXXXXXQaXXXXXXXXXXX-2880-1800.png" alt="inspector-resource"></p>
+<h4 class="article-heading"><span id="debugger">Debugger</span><a href="#debugger" class="header-anchor">#</a></h4><p> &#x8C03;&#x8BD5;&#x5668;&#x7528;&#x6765;&#x8C03;&#x8BD5; Weex &#x4E2D;&#x7684; JS &#x4EE3;&#x7801;&#xFF0C;&#x80FD;&#x591F;&#x8BBE;&#x7F6E;&#x65AD;&#x70B9;&#x3001;&#x67E5;&#x770B;&#x8C03;&#x7528;&#x6808;&#x3002;</p>
+<p><img src="https://img.alicdn.com/tps/TB1aPTEKFXXXXXaXXXXXXXXXXXX-1436-813.png" alt="devtools-debugger"></p>
+<h5 class="article-heading"><span id="breakpoint-and-callstack">Breakpoint and CallStack</span><a href="#breakpoint-and-callstack" class="header-anchor">#</a></h5><p><img src="https://img.alicdn.com/tps/TB1_trbKFXXXXc0XVXXXXXXXXXX-2880-1800.png" alt="debugger-breakpoint"></p>
+<h4 class="article-heading"><span id="ji-cheng-devtools">&#x96C6;&#x6210;devtools</span><a href="#ji-cheng-devtools" class="header-anchor">#</a></h4><ul>
+<li>Android<ul>
+<li>&#x8BF7;&#x53C2;&#x8003;&#x6587;&#x6863; <a href="../../references/advanced/integrate-devtool-to-android.html">Weex devtools (Android)</a>&#xFF0C;&#x5176;&#x4E2D;&#x6709;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;&#x3002;</li>
+</ul>
+</li>
+<li>IOS<ul>
+<li>&#x8BF7;&#x53C2;&#x8003;&#x6587;&#x6863; <a href="../../references/advanced/integrate-devtool-to-ios.html">Weex devtools (iOS)</a>&#xFF0C; &#x5176;&#x4E2D;&#x6709;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h3 class="article-heading"><span id="weex-toolkit-dui-weexpack-de-shui-ping-kuo-zhan">weex-toolkit &#x5BF9; weexpack &#x7684;&#x6C34;&#x5E73;&#x6269;&#x5C55;</span><a href="#weex-toolkit-dui-weexpack-de-shui-ping-kuo-zhan" class="header-anchor">#</a></h3><p><a href="https://github.com/weexteam/weex-pack" target="_blank" rel="external">weexpack</a> &#x662F;&#x57FA;&#x4E8E; Weex &#x5FEB;&#x901F;&#x642D;&#x5EFA;&#x5E94;&#x7528;&#x539F;&#x578B;&#x7684;&#x5229;&#x5668;&#x3002;&#x5B83;&#x80FD;&#x591F;&#x5E2E;&#x52A9;&#x5F00;&#x53D1;&#x8005;&#x901A;&#x8FC7;&#x547D;&#x4EE4;&#x884C;&#x521B;&#x5EFA; Weex &#x5DE5;&#x7A0B;&#xFF0C;&#x6DFB;&#x52A0;&#x76F8;&#x5E94;&#x5E73;&#x53F0;&#x7684; Weex app &#x6A21;&#x7248;&#xFF0C;&#x5E76;&#x57FA;&#x4E8E;&#x6A21;&#x7248;&#x4ECE;&#x672C;&#x5730;&#xFF0C;GitHub &#x6216;&#x8005; Weex &#x5E94;&#x7528;&#x5E02;&#x573A;&#x5B89;&#x88C5;&#x63D2;&#x4EF6;&#xFF0C;&#x5FEB;&#x901F;&#x6253;&#x5305; Weex &#x5E94;&#x7528;&#x5E76;&#x5B89;&#x88C5;&#x5230;&#x624B;&#x673A;&#x8FD0;&#x884C;&#xFF0C;&#x5BF9;&#x4E8E;&#x5177;&#x6709;&#x5206;&#x4EAB;&#x7CBE;&#x795E;&#x7684;&#x5F00;&#x53D1;&#x8005;&#x800C;&#x8A00;&#x8FD8;&#x80FD;&#x591F;&#x521B;&#x5EFA; Weex &#x63D2;&#x4EF6;&#x6A21;&#x7248;&#x5E76;&#x53D1;&#x5E03;&#x63D2;&#x4EF6;&#x5230; Weex &#x5E94;&#x7528;&#x5E02;&#x573A;&#x3002;</p>
+<p>&#x73B0;&#x5728;&#x4F7F;&#x7528; <code>weex-toolkit</code> &#x540C;&#x6837;&#x652F;&#x6301;&#x5BF9; <code>weexpack</code> &#x7684;&#x547D;&#x4EE4;&#x8C03;&#x7528;,&#x5982;&#x679C;&#x4F60;&#x5F53;&#x524D;&#x7684;&#x9879;&#x76EE;&#x4E0E; <code>weexpack</code> &#x751F;&#x6210;&#x7684;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x4E00;&#x81F4;&#xFF0C;&#x90A3;&#x4E48;&#x4F60;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5B9E;&#x73B0;&#x5BF9;&#x4E8E; <code>platform</code> &#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x4ECE;&#x800C;&#x6784;&#x5EFA;&#x5177;&#x4F53;&#x7684; Android/IOS app &#x3002;</p>
+<h3 class="article-heading"><span id="weex-platform-yi-ji-run-ming-ling">weex platform &#x4EE5;&#x53CA; run &#x547D;&#x4EE4;</span><a href="#weex-platform-yi-ji-run-ming-ling" class="header-anchor">#</a></h3><p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x5728;&#x6A21;&#x62DF;&#x5668;&#x6216;&#x8005;&#x771F;&#x673A;&#x4E0A;&#x67E5;&#x770B; Weex &#x8FD0;&#x884C;&#x7684;&#x6548;&#x679C;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>platform</code> &#x6DFB;&#x52A0;&#x6216;&#x8005;&#x5220;&#x9664; Weex &#x5E94;&#x7528;&#x6A21;&#x677F;&#x3002;</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><div class="line">$ weex platform add ios</div></pre></td></tr></tbody></table></figure>
+<p>&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x4F7F;&#x7528; platform/plugin &#x547D;&#x4EE4;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x9047;&#x5230;&#x4E0B;&#x9762;&#x7684;&#x754C;&#x9762;&#xFF0C;&#x4F60;&#x53EA;&#x9700;&#x8981;&#x8F93;&#x5165; Y &#x6216;&#x8005;&#x76F4;&#x63A5; enter &#x952E;&#x5373;&#x53EF;&#x3002;<br><img src="https://gw.alicdn.com/tfs/TB19n4AQXXXXXawXVXXXXXXXXXX-577-70.png" alt="install weexpack"></p>
+<p>&#x6DFB;&#x52A0;ios&#x5E73;&#x53F0;&#xFF0C;&#x7136;&#x540E;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x53EA;&#x8981;&#x8F93;&#x5165;:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><div class="line">$ weex run ios</div></pre></td></tr></tbody></table></figure>
+<p>&#x5C31;&#x80FD;&#x770B;&#x5230;&#x542F;&#x52A8;&#x7684;&#x6A21;&#x62DF;&#x5668;&#x8FD0;&#x884C;&#x7684;&#x6548;&#x679C;&#x4E86;&#x3002;</p>
+<h3 class="article-heading"><span id="weex-plugin-ming-ling">weex plugin &#x547D;&#x4EE4;</span><a href="#weex-plugin-ming-ling" class="header-anchor">#</a></h3><p>&#x5982;&#x679C;&#x4F60;&#x60F3;&#x4F7F;&#x7528;<a href="https://market.dotwe.org" target="_blank" rel="external">&#x63D2;&#x4EF6;&#x5E02;&#x573A;</a>&#x7684;&#x63D2;&#x4EF6;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#xFF1A;</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><div class="line">$ weex plugin add plugin_name</div></pre></td></tr></tbody></table></figure>
+<p>&#x4F60;&#x53EA;&#x9700;&#x8981;&#x8F93;&#x5165;&#x63D2;&#x4EF6;&#x7684;&#x540D;&#x79F0;&#x5C31;&#x53EF;&#x4EE5;&#x4ECE;&#x8FDC;&#x7A0B;&#x6DFB;&#x52A0;&#x63D2;&#x4EF6;&#x5230;&#x4F60;&#x672C;&#x5730;&#x7684;&#x9879;&#x76EE;&#xFF0C;&#x6BD4;&#x5982;&#x6DFB;&#x52A0; weex-chart&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8F93;&#x5165;&#x547D;&#x4EE4;&#xFF1A;</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><div class="line">$ weex plugin add weex-chart</div></pre></td></tr></tbody></table></figure>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>plugin remove</code>&#x79FB;&#x9664;&#x63D2;&#x4EF6;&#xFF0C;&#x6BD4;&#x5982;&#x79FB;&#x9664;&#x5B89;&#x88C5;&#x597D;&#x7684; weex-cahrt&#xFF1A;</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><div class="line">$ weex plugin remove weex-chart</div></pre></td></tr></tbody></table></figure>
+<p>&#x5173;&#x4E8E; <code>weexpack</code> &#x66F4;&#x52A0;&#x8BE6;&#x7EC6;&#x7684;&#x4ECB;&#x7ECD;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x9605;&#x8BFB; <a href="https://github.com/weexteam/weex-pack" target="_blank" rel="external">&#x5B98;&#x65B9;&#x6587;&#x6863;</a>&#x3002;</p>
+</body></html>
+    <div class="article-tips">
+      <p class="tips-text">
+        <a class="xx" href="">Rank this page</a>
+        <span class="spliter"> | </span>
+        <a class="xx" href="">Edit this page on GitHub.</a>
+      </p>
+    </div>
+  </div>
+  
+  <footer id="footer">
+  <div class="footer-inner">
+    <div class="disclaimer">
+      <a target="_blank" href="https://incubator.apache.org/">
+        <img src="//gw.alicdn.com/tfs/TB1pTBZQFXXXXX9XXXXXXXXXXXX-794-280.png" width="100px" alt="Apache Incubator">
+      </a>
+      <p>
+        <span class="title">Disclaimer:</span>
+        <span>Apache Weex is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.</span>
+    </div>
+    <p class="copyright">
+      <img src="//gw.alicdn.com/tfs/TB1bg8SQFXXXXcHXXXXXXXXXXXX-85-170.png" height="16px" alt="Apache"><span>Copyright(c) 2017 The Apache Software Foundation. Licensed under the </span>
+      <a target="_blank" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>
+    </p>
+  </div>
+  <div style="display: none;">
+  <script src="//s95.cnzz.com/z_stat.php?id=1261496509&web_id=1261496509" language="JavaScript"></script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-104559823-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</div>
+
+</footer>
+
+</article>
+
+  </div>
+</div>
+
+
+  <script src="/js/reqwest.js"></script>
+  <script src="/js/common.js"></script>
+  
+    
+    
+    <script src="/js/docsearch.min.js"></script>
+    <script type="text/javascript">
+    docsearch({
+      apiKey: "db5b2379e5ffbc33509585c35ccabba8",
+      indexName: "weex_cn",
+      inputSelector: '#search-input-header',
+      algoliaOptions: {
+        hitsPerPage: 10
+      }
+    });
+    </script>
+  
+</body>
+</html>

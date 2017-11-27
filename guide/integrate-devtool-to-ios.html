@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Integrate Devtool to iOS | Weex</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Integrate Devtool to iOS#Weex devtools is a custom devtools for weex that implements Chrome Debugging Protocol inspired by Stetho, it is designed to help you quickly inspect your app and debug your JS">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Integrate Devtool to iOS">
+<meta property="og:url" content="https://weex.apache.org/guide/integrate-devtool-to-ios.html">
+<meta property="og:site_name" content="Weex">
+<meta property="og:description" content="Integrate Devtool to iOS#Weex devtools is a custom devtools for weex that implements Chrome Debugging Protocol inspired by Stetho, it is designed to help you quickly inspect your app and debug your JS">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://img.alicdn.com/tps/TB1MXjjNXXXXXXlXpXXXXXXXXXX-795-326.png">
+<meta property="og:image" content="https://img.alicdn.com/tps/TB1A518NXXXXXbZXFXXXXXXXXXX-642-154.png">
+<meta property="og:image" content="https://img.alicdn.com/tps/TB1xRHhNXXXXXakXpXXXXXXXXXX-1498-668.png">
+<meta property="og:updated_time" content="2017-10-12T12:28:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Integrate Devtool to iOS">
+<meta name="twitter:description" content="Integrate Devtool to iOS#Weex devtools is a custom devtools for weex that implements Chrome Debugging Protocol inspired by Stetho, it is designed to help you quickly inspect your app and debug your JS">
+<meta name="twitter:image" content="https://img.alicdn.com/tps/TB1MXjjNXXXXXXlXpXXXXXXXXXX-795-326.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Weex" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//gw.alicdn.com/tps/TB1XNqxPXXXXXcSXVXXXXXXXXXX-64-63.png">
+  
+  
+    <link rel="stylesheet" href="/css/docsearch.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/swiper.min.css">
+</head>
+<body id="guide" class="lang-en">
+  
+  <script>
+    window.PAGE_TYPE = "guide";
+    window.ROOT = "/"
+  </script>
+  <header id="header">
+  <div class="navbar">
+    <a id="logo" href="/">
+      <img src="//img.alicdn.com/tps/TB1zBLaPXXXXXXeXXXXXXXXXXXX-121-59.svg" />
+    </a>
+    <div class="main-nav">
+      <ul class="links">
+        <li class="current">
+          <a href="/guide">Guide</a>
+        </li>
+        <li class="">
+          <a href="/references">References</a>
+        </li>
+        <li class="">
+          <a href="/wiki">WiKi</a>
+        </li>
+        <li class="">
+            <a  href="/tools">Tools</a>
+        </li>
+        <li class="dropdown ">
+          <a href="javascript:;">Community</a>
+          <ul class="dropdown-menu subnav">
+            <li>
+              <a href="/resources.html">Resources</a>
+            </li>
+            <li>
+              <a href="/contributing.html">How to Contribute</a>
+            </li>
+            <li>
+              <a href="/development-process.html">Development Process</a>
+            </li>
+            <li>
+              <a href="/who-is-using-weex.html">Who is using Weex?</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="tools">
+        <li>
+          <div class="search">
+  <form id="search-form" class="search-form"> <!-- 搜索框相关 -->
+    <input type="text" id="search-input-header" name="q" results="0" class="form-control search-input" autocomplete="off" autocorrect="off"/>
+    <span class="iconfont icon-search"></span>
+  </form>
+  <div class="results-panel">
+  </div>
+</div>
+        </li>
+        <li>
+          <div class="dropdown select-lang">
+            <a href="javascript:;" class="dropdown-toggle">
+              Language
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu pick-lang">
+              <li>
+                <a href="/guide/integrate-devtool-to-ios.html" data-lang="en">English</a>
+              </li>
+              <li>
+                <a href="/cn/guide/integrate-devtool-to-ios.html" data-lang="zh-cn">中文</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <!--<li></li>-->
+      </ul>
+      <ul>
+        <li><a href="https://github.com/apache/incubator-weex/" target="_blank"><span class="btn-github iconfont icon-github"></span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="mobile-nav">
+    <a id="logo" href="/">
+      <img src="//img.alicdn.com/tps/TB1zBLaPXXXXXXeXXXXXXXXXXXX-121-59.svg" />
+    </a>
+    <a class="btn-menu"><span class="iconfont icon-nav"></span></a>
+  </div>
+</header>
+
+  <div id="sidebar" class="">
+  <div class="sidebar-menu">
+    
+      <div class="search">
+  <form id="search-form" class="search-form"> <!-- 搜索框相关 -->
+    <input type="text" id="search-input-sidebar" name="q" results="0" class="form-control search-input" autocomplete="off" autocorrect="off"/>
+    <span class="iconfont icon-search"></span>
+  </form>
+  <div class="results-panel">
+  </div>
+</div>
+      
+
+
+<div class="summary">
+  <ul class="doc-summary">
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Overview</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/guide/index.html" class="sidebar-link  ">Get Started</a>
+              </li>
+            
+              <li>
+                <a href="/guide/integrate-to-your-app.html" class="sidebar-link  ">Integrate to Your App</a>
+              </li>
+            
+              <li>
+                <a href="/guide/front-end-frameworks.html" class="sidebar-link  ">Front-End Frameworks</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Develop</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/guide/set-up-env.html" class="sidebar-link  ">Setup Develop Environment</a>
+              </li>
+            
+              <li>
+                <a href="/guide/integrate-devtool-to-android.html" class="sidebar-link  ">Integrate Devtool to Android</a>
+              </li>
+            
+              <li>
+                <a href="/guide/integrate-devtool-to-ios.html" class="sidebar-link current ">Integrate Devtool to iOS</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Extend</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/guide/extend-web-render.html" class="sidebar-link  ">Extend Web Render</a>
+              </li>
+            
+              <li>
+                <a href="/guide/extend-android.html" class="sidebar-link  ">Extend Android</a>
+              </li>
+            
+              <li>
+                <a href="/guide/extend-ios.html" class="sidebar-link  ">Extend iOS</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/extend-js-framework.html" class="sidebar-link  ">Extend JS framework</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Advanced Guide</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/guide/advanced/path.html" class="sidebar-link  ">Asset Path</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/downgrade.html" class="sidebar-link  ">Downgrade</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/use-vuex-and-vue-router.html" class="sidebar-link  ">Use Vuex and vue-router</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/app-architecture.html" class="sidebar-link  ">Mobile App Architecture</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/page-architecture.html" class="sidebar-link  ">Weex Page Architecture</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+</div>
+
+    
+    <a class="btn-close-sidebar iconfont  icon-close"></a>
+  </div>
+</div>
+
+  
+
+<div class="main-content">
+  <div class="article-wrapper page-layout with-chapter">
+    
+      <div class="doc-nav">
+        
+
+
+<div class="summary">
+  <ul class="doc-summary">
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Overview</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/guide/index.html" class="sidebar-link  ">Get Started</a>
+              </li>
+            
+              <li>
+                <a href="/guide/integrate-to-your-app.html" class="sidebar-link  ">Integrate to Your App</a>
+              </li>
+            
+              <li>
+                <a href="/guide/front-end-frameworks.html" class="sidebar-link  ">Front-End Frameworks</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Develop</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/guide/set-up-env.html" class="sidebar-link  ">Setup Develop Environment</a>
+              </li>
+            
+              <li>
+                <a href="/guide/integrate-devtool-to-android.html" class="sidebar-link  ">Integrate Devtool to Android</a>
+              </li>
+            
+              <li>
+                <a href="/guide/integrate-devtool-to-ios.html" class="sidebar-link current ">Integrate Devtool to iOS</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Extend</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/guide/extend-web-render.html" class="sidebar-link  ">Extend Web Render</a>
+              </li>
+            
+              <li>
+                <a href="/guide/extend-android.html" class="sidebar-link  ">Extend Android</a>
+              </li>
+            
+              <li>
+                <a href="/guide/extend-ios.html" class="sidebar-link  ">Extend iOS</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/extend-js-framework.html" class="sidebar-link  ">Extend JS framework</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <h3 class="chapter-title">
+          <span class="sidebar-link">Advanced Guide</span>
+        </h3>
+        
+          <ul class="chapter">
+            
+              <li>
+                <a href="/guide/advanced/path.html" class="sidebar-link  ">Asset Path</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/downgrade.html" class="sidebar-link  ">Downgrade</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/use-vuex-and-vue-router.html" class="sidebar-link  ">Use Vuex and vue-router</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/app-architecture.html" class="sidebar-link  ">Mobile App Architecture</a>
+              </li>
+            
+              <li>
+                <a href="/guide/advanced/page-architecture.html" class="sidebar-link  ">Weex Page Architecture</a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+</div>
+
+        <div class="sponsor">
+            <a class="sponsor-poster" target="_blank" href="https://render.alipay.com/p/s/taobaonpm_click/weex_banner_click">
+              <img src="https://render.alipay.com/p/s/taobaonpm_click/weex_banner" alt="" width="180px">
+            </a>
+            <div class="sponsor-title">本站点由阿里云赞助支持</div>
+          </div>
+      </div>
+    
+    
+
+<article class="article article-type-guide">
+  <div class="article-entry" itemprop="articleBody">
+    <header class="article-header">
+  
+    
+      <h1 class="article-title" itemprop="name">
+        Integrate Devtool to iOS
+      </h1>
+    
+  
+  <!-- <time class="article-date" datetime="2017-10-12T12:28:01.000Z">Updated time: 12/10/2017</time> -->
+</header>
+
+    <html><head></head><body><h1 class="article-heading"><span id="integrate-devtool-to-ios">Integrate Devtool to iOS</span><a href="#integrate-devtool-to-ios" class="header-anchor">#</a></h1><p>Weex devtools is a custom devtools for weex that implements Chrome Debugging Protocol inspired by Stetho, it is designed to help you quickly inspect your app and debug your JS bundle source in a Chrome web page. To make it work, at first you must integrate devtool to your App. This page will help you integrate devtool to your iOS App.</p>
+<h2 class="article-heading"><span id="integrate-to-ios">Integrate to iOS</span><a href="#integrate-to-ios" class="header-anchor">#</a></h2><h3 class="article-heading"><span id="installing-dependencies">Installing Dependencies</span><a href="#installing-dependencies" class="header-anchor">#</a></h3><p>There are two choices to install dependencies:</p>
+<h4 class="article-heading"><span id="no-1-from-cocoapods">No.1 From cocoapods</span><a href="#no-1-from-cocoapods" class="header-anchor">#</a></h4><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><div class="line">source https://github.com/CocoaPods/Specs.git&#xFF0C;</div><div class="line">pod  &apos;WXDevtool&apos;,   &apos;0.7.0&apos;, :configurations =&gt; [&apos;Debug&apos;]&#xFF0C;</div></pre></td></tr></tbody></table></figure>
+<p>I strongly recommend you use the latest version since both Weex SDK and devtools are developed iteratively and rapidly.</p>
+<h4 class="article-heading"><span id="no-2-from-source-code">No.2 From source code</span><a href="#no-2-from-source-code" class="header-anchor">#</a></h4><ol>
+<li><p>Get source code by <a href="https://github.com/weexteam/weex-devtool-iOS" target="_blank" rel="external">GitHub</a>.</p>
+</li>
+<li><p>Copy source folder to your project.</p>
+<p><img src="//img.alicdn.com/tps/TB1MXjjNXXXXXXlXpXXXXXXXXXX-795-326.png" alt="drag"></p>
+</li>
+<li><p>Choose options as the picture shows.</p>
+<p><img src="//img.alicdn.com/tps/TB1A518NXXXXXbZXFXXXXXXXXXX-642-154.png" alt="_"></p>
+</li>
+</ol>
+<h3 class="article-heading"><span id="integrate">Integrate</span><a href="#integrate" class="header-anchor">#</a></h3><h4 class="article-heading"><span id="step-1-add-header-file-in-appdelegate-m">Step 1. Add header file in <code>AppDelegate.m</code></span><a href="#step-1-add-header-file-in-appdelegate-m" class="header-anchor">#</a></h4><ul>
+<li><p>From cocoapods:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><div class="line">  #import &lt;TBWXDevtool/WXDevtool.h&gt;</div><div class="line">  ``</div><div class="line"></div><div class="line">- From source code</div></pre></td></tr></tbody></table></figure>
+<p>#import &#x201C;WXDevtool.h&#x201D;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><div class="line"></div><div class="line">#### Step 2. Initialize inspector when the APP launched</div><div class="line"></div><div class="line">You can see the WXDevtool header file as follows:</div><div class="line"></div><div class="line">```object-c</div><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface WXDevTool : NSObject</div><div class="line">/**</div><div class="line">*  set debug status</div><div class="line">*  @param isDebug  : YES:open debug model and inspect model;</div><div class="line">*                    default is NO,if isDebug is NO, open inspect only;</div><div class="line">* */</div><div class="line">+ (void)setDebug:(BOOL)isDebug;</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line">*  get debug status</div><div class="line">* */</div><div class="line">+ (BOOL)isDebug;</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line">*  launch weex debug</div><div class="line">*  @param url  : ws://ip:port/debugProxy/native, ip and port is your devtool server address</div><div class="line">* eg:@&quot;ws://30.30.29.242:8088/debugProxy/native&quot;</div><div class="line">* */</div><div class="line">+ (void)launchDevToolDebugWithUrl:(NSString *)url;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></tbody></table></figure>
+</li>
+</ul>
+<p><strong>Note: The inspector API must be called before weex is initialized</strong></p>
+<ul>
+<li><p><code>setDebug</code></p>
+<p><code>setDebug</code> is used to control the state of debug mode, when its value is <code>YES</code>, open the debug mode, otherwise closed.</p>
+</li>
+<li><p><code>(void)launchDevToolDebugWithUrl:(NSString *)url;</code></p>
+<p>wssip was the wss address showing in the chrome address bar.</p>
+</li>
+</ul>
+<p>open debug model and inspector model</p>
+<p>eg&#xFF1A;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><div class="line">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions { [WXDevTool setDebug:YES]; [WXDevTool launchDevToolDebugWithUrl:@&quot;ws://wssip/debugProxy/native&quot;]; }</div></pre></td></tr></tbody></table></figure>
+<p>open inspect model, remove the <code>@selector
+(setDebug:)</code> or add <code>[WXDevTool setDebug:NO]</code></p>
+<p>eg&#xFF1A;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><div class="line">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions { [WXDevTool launchDevToolDebugWithUrl:@&quot;ws://wssip/debugProxy/native&quot;]; }</div></pre></td></tr></tbody></table></figure>
+<h4 class="article-heading"><span id="step-3-auto-refresh">Step 3. Auto refresh</span><a href="#step-3-auto-refresh" class="header-anchor">#</a></h4><p>Q: Why do we need auto refresh feature?</p>
+<p>A: As shown in future, when you click the debugger button, Javascript runtime environment will change from the phone (JavaScriptCore) to PC (Chrome V8), then Weex need to re-initialize the Weex environment, re-render the page. Page rendering is required for the developer to add on its own page.</p>
+<p><img src="//img.alicdn.com/tps/TB1xRHhNXXXXXakXpXXXXXXXXXX-1498-668.png" alt="_debug"></p>
+<p>Q: What kind of scene need to add refresh feature?</p>
+<ul>
+<li>Click debugger button</li>
+<li>Switch remoteDebug</li>
+<li>Refresh inspect page</li>
+</ul>
+<p>Q: How to add auto refresh feature?</p>
+<p>Register events when Weex initialization.</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><div class="line">[[NSNotificationCenter defaultCenter] addObserver:self selector:notificationRefreshInstance: name:@&quot;RefreshInstance&quot; object:nil];</div></pre></td></tr></tbody></table></figure>
+<p><strong>Notes: You must cancel this event in the <code>dealloc</code> method. For example:</strong></p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><div class="line">- (void)dealloc</div><div class="line">{</div><div class="line">    [[NSNotificationCenter defaultCenter] removeObserver:self];</div><div class="line">}</div></pre></td></tr></tbody></table></figure>
+<p>For example, First you can destroy the current instance, and then re-create instance:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><div class="line">- (void)dealloc</div><div class="line">{</div><div class="line">    [[NSNotificationCenter defaultCenter] removeObserver:self];</div><div class="line">}</div></pre></td></tr></tbody></table></figure>
+<p>&#x9875;&#x9762;&#x5237;&#x65B0;&#x5B9E;&#x73B0;&#xFF0C;&#x5148;&#x9500;&#x6BC1;&#x5F53;&#x524D; instance&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x65B0;&#x521B;&#x5EFA; instance&#xFF0C;&#x4E3E;&#x4F8B;&#x5982;&#x4E0B;:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><div class="line">  - (void)render</div><div class="line">  {</div><div class="line">    CGFloat width = self.view.frame.size.width;</div><div class="line">    [_instance destroyInstance];</div><div class="line">    _instance = [[WXSDKInstance alloc] init];</div><div class="line">    _instance.viewController = self;</div><div class="line">    _instance.frame = CGRectMake(self.view.frame.size.width-width, 0, width, _weexHeight);</div><div class="line"></div><div class="line">    __weak typeof(self) weakSelf = self;</div><div class="line">    _instance.onCreate = ^(UIView *view) {</div><div class="line">        [weakSelf.weexView removeFromSuperview];</div><div class="line">        weakSelf.weexView = view;</div><div class="line">        [weakSelf.view addSubview:weakSelf.weexView];</div><div class="line">        UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification,  weakSelf.weexView);</div><div class="line">    };</div><div class="line">    _instance.onFailed = ^(NSError *error) {</div><div class="line"></div><div class="line">    };</div><div class="line"></div><div class="line">    _instance.renderFinish = ^(UIView *view) {</div><div class="line">        [weakSelf updateInstanceState:WeexInstanceAppear];</div><div class="line">    };</div><div class="line"></div><div class="line">    _instance.updateFinish = ^(UIView *view) {</div><div class="line">    };</div><div class="line">    if (!self.url) {</div><div class="line">        return;</div><div class="line">    }</div><div class="line">    NSURL *URL = [self testURL: [self.url absoluteString]];</div><div class="line">    NSString *randomURL = [NSString stringWithFormat:@&quot;%@?random=%d&quot;,URL.absoluteString,arc4random()];</div><div class="line">    [_instance renderWithURL:[NSURL URLWithString:randomURL] options:@{@&quot;bundleUrl&quot;:URL.absoluteString} data:nil];</div><div class="line">}</div></pre></td></tr></tbody></table></figure>
+<p>You can see the details in this case <a href="https://github.com/weexteam/weex-devtool-iOS/blob/master/Devtools/playground/WeexDemo/WXDemoViewController.m" target="_blank" rel="external">WXDemoViewController.m</a></p>
+</body></html>
+    <div class="article-tips">
+      <p class="tips-text">
+        <a class="xx" href="">Rank this page</a>
+        <span class="spliter"> | </span>
+        <a class="xx" href="">Edit this page on GitHub.</a>
+      </p>
+    </div>
+  </div>
+  
+  <footer id="footer">
+  <div class="footer-inner">
+    <div class="disclaimer">
+      <a target="_blank" href="https://incubator.apache.org/">
+        <img src="//gw.alicdn.com/tfs/TB1pTBZQFXXXXX9XXXXXXXXXXXX-794-280.png" width="100px" alt="Apache Incubator">
+      </a>
+      <p>
+        <span class="title">Disclaimer:</span>
+        <span>Apache Weex is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.</span>
+    </div>
+    <p class="copyright">
+      <img src="//gw.alicdn.com/tfs/TB1bg8SQFXXXXcHXXXXXXXXXXXX-85-170.png" height="16px" alt="Apache"><span>Copyright(c) 2017 The Apache Software Foundation. Licensed under the </span>
+      <a target="_blank" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>
+    </p>
+  </div>
+  <div style="display: none;">
+  <script src="//s95.cnzz.com/z_stat.php?id=1261496509&web_id=1261496509" language="JavaScript"></script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-104559823-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</div>
+
+</footer>
+
+</article>
+
+  </div>
+</div>
+
+
+  <script src="/js/reqwest.js"></script>
+  <script src="/js/common.js"></script>
+  
+    
+    
+    <script src="/js/docsearch.min.js"></script>
+    <script type="text/javascript">
+    docsearch({
+      apiKey: "a6896fe3619315a7f04e9a76bbbbbfcb",
+      indexName: "weex",
+      inputSelector: '#search-input-header',
+      algoliaOptions: {
+        hitsPerPage: 10
+      }
+    });
+    </script>
+  
+</body>
+</html>
