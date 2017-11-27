@@ -182,22 +182,24 @@
         currentLang = navigator.language || navigator.browserLanguage || 'en',
         selectedLang = '';
 
-    if (window.localStorage) {
-      selectedLang = window.localStorage.getItem('lang')
-      currentLang = selectedLang ? selectedLang : currentLang
-    }
+    if (currentOrigin.match(/weex(\-project)?\.io/i)) {
+      if (window.localStorage) {
+        selectedLang = window.localStorage.getItem('lang')
+        currentLang = selectedLang ? selectedLang : currentLang
+      }
 
-    if (/zh|cn/i.test(currentLang)) { // Chinese
-      if (currentPathname.indexOf('/cn/') != 0) {
-        location.href = currentOrigin + '/cn/'
-      }
-    } else if (/en/i.test(currentLang)) { // English
-      if (!/^\/$|^\/index/.test(currentPathname)) {
-        location.href = currentOrigin
-      }
-    } else { // Other
-      if (!/^\/$|^\/index/.test(currentPathname)) {
-        location.href = currentOrigin
+      if (/zh|cn/i.test(currentLang)) { // Chinese
+        if (currentPathname.indexOf('/cn/') != 0) {
+          location.href = currentOrigin + '/cn/'
+        }
+      } else if (/en/i.test(currentLang)) { // English
+        if (!/^\/$|^\/index/.test(currentPathname)) {
+          location.href = currentOrigin
+        }
+      } else { // Other
+        if (!/^\/$|^\/index/.test(currentPathname)) {
+          location.href = currentOrigin
+        }
       }
     }
   })();
