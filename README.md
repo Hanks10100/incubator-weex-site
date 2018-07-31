@@ -1,6 +1,6 @@
 # Weex Website
 
-This is the source code of Weex official website..
+This is the source code of Weex official website
 
 + Official website: http://weex.apache.org/
 + Mirror in Alibaba Cloud (faster in China): https://weex-project.io/
